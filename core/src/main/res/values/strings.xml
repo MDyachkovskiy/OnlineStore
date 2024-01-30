@@ -10,4 +10,17 @@
     <string name="hint_phone_number">Номер телефона</string>
     <string name="login_btn_text">Войти</string>
 
+    //catalogue_screen
+    <string name="catalogue_title">Каталог</string>
+    <string name="btn_filters">Фильтры</string>
+    <string name="sort_by_popularity">По популярности</string>
+    <string name="sort_by_price_desc">По уменьшению цены</string>
+    <string name="sort_by_price_asc">По возрастанию цены</string>
+    <string name="tag_all">Смотреть все</string>
+    <string name="tag_face">Лицо</string>
+    <string name="tag_body">Тело</string>
+    <string name="tag_suntan">Загар</string>
+    <string name="tag_mask">Маски</string>
+
+
 </resources>

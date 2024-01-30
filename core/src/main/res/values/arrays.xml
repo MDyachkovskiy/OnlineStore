@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sorting_options">
+        <item>@string/sort_by_popularity</item>
+        <item>@string/sort_by_price_desc</item>
+        <item>@string/sort_by_price_asc</item>
+    </string-array>
+
+    <string-array name="tags_array">
+        <item>@string/tag_all</item>
+        <item>@string/tag_face</item>
+        <item>@string/tag_body</item>
+        <item>@string/tag_suntan</item>
+        <item>@string/tag_mask</item>
+    </string-array>
+
+</resources>

@@ -4,8 +4,8 @@ plugins {
 }
 
 android {
-    namespace = "com.test.application.auth_screen"
-    compileSdk = 34
+    namespace = "com.test.application.catalogue_screen"
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 29

@@ -6,7 +6,9 @@
 
     <color name="grey">#A0A1A3</color>
     <color name="light_grey">#F8F8F8</color>
+    <color name="pink">#D62F89</color>
     <color name="light_pink">#FF8AC9</color>
+    <color name="dark_blue">#52606D</color>
 
     <color name="override_transparent_color" tools:override="true">@android:color/transparent</color>
 
