@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "OnlineStore"
 include(":app")
- 
+include(":core")
+include(":local_data")
+include(":remote_data")
+include(":auth_screen")

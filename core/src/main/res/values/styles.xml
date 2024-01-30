@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="title_1">
+        <item name="android:textSize">@dimen/title_1</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:lineHeight">@dimen/title_1_height</item>
+    </style>
+
+    <style name="caption_1">
+        <item name="android:textSize">@dimen/caption_1</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:lineHeight">@dimen/caption_1_height</item>
+    </style>
+
+    <style name="placeholder_text">
+        <item name="android:textSize">@dimen/placeholder_text</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="button_text_2">
+        <item name="android:textSize">@dimen/button_text_2</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:lineHeight">@dimen/button_text_2_height</item>
+    </style>
+
+    <style name="AuthInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeColor">@color/override_transparent_color</item>
+        <item name="boxBackgroundColor">@color/light_grey</item>
+        <item name="hintTextColor">@color/grey</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <style name="LoginButton" parent="ShapeAppearanceOverlay.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/light_pink</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textSize">@dimen/button_text_2</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:lineHeight">@dimen/button_text_2_height</item>
+    </style>
+
+
+</resources>

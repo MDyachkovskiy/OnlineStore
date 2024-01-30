@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //text_size
+    <dimen name="large_title_1">16sp</dimen>
+    <dimen name="title_1">16sp</dimen>
+    <dimen name="title_1_height">20.8dp</dimen>
+    <dimen name="title_2">14sp</dimen>
+    <dimen name="title_3">12sp</dimen>
+    <dimen name="title_4">14sp</dimen>
+    <dimen name="text_1">12sp</dimen>
+    <dimen name="caption_1">10sp</dimen>
+    <dimen name="caption_1_height">11dp</dimen>
+    <dimen name="button_text_1">12dp</dimen>
+    <dimen name="button_text_2">14dp</dimen>
+    <dimen name="button_text_2_height">18.2dp</dimen>
+    <dimen name="element_text">9dp</dimen>
+    <dimen name="price_text">24dp</dimen>
+    <dimen name="placeholder_text">16sp</dimen>
+    <dimen name="link_text">10sp</dimen>
+
+
+
+    //margin
+    <dimen name="margin_2dp_small">2dp</dimen>
+    <dimen name="margin_16dp_medium">16dp</dimen>
+    <dimen name="margin_32dp_large">32dp</dimen>
+
+
+
+</resources>

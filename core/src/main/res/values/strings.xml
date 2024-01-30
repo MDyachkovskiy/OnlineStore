@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //auth_screen
+    <string name="auth_title">Вход</string>
+    <string name="license_text_first_line">Нажимая кнопку “Войти”, Вы принимаете</string>
+    <string name="license_text_second_line"><u>условия программы лояльности</u></string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_second_name">Фамилия</string>
+    <string name="hint_phone_number">Номер телефона</string>
+    <string name="login_btn_text">Войти</string>
+
+</resources>
