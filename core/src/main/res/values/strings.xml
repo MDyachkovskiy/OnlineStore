@@ -22,5 +22,19 @@
     <string name="tag_suntan">Загар</string>
     <string name="tag_mask">Маски</string>
 
+    //product_details
+    <string name="details_title">Каталог</string>
+    <string name="description_label">Описание</string>
+    <string name="hide_text">Скрыть</string>
+    <string name="dropdown_text">Подробнее</string>
+    <string name="features_label">Характеристики</string>
+    <string name="item_code_label">Артикул товара</string>
+    <string name="application_area_label">Область использования</string>
+    <string name="production_country_label">Страна производства</string>
+    <string name="composition_label">Состав</string>
+    <string name="add_to_cart">Добавить в корзину</string>
+
+
+
 
 </resources>

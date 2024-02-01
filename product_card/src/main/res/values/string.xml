@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="product_description_mock">Пенка для лица Глубокое очищение содержит минеральную воду и соду, способствует глубокому очищению пор от различных загрязнений, контролирует работу сальных желез, сужает поры. Обладает мягким антисептическим действием, не пересушивая кожу. Минеральная вода тонизирует и смягчает кожу.</string>
+    <string name="brand_name_mock">A`PIEU</string>
+    <string name="reamining_stock_mock">Доступно для заказа 30 штук</string>
+    <string name="long_product_name_mock">Пенка для умывания`A`PIEU` `DEEP CLEAN` 200 мл</string>
+    <string name="product_name_mock">ESFOLIO</string>
+    <string name="old_price_mock">899 ₽</string>
+    <string name="price_mock">549 ₽"</string>
+    <string name="discount_mock">-35%</string>
+    <string name="rating_mock">4.3</string>
+    <string name="review_count_mock">4 отзыва</string>
+    <string name="item_code_mock">133987</string>
+    <string name="application_area_mock">Лицо</string>
+    <string name="production_country_mock">Республика Корея</string>
+    <string name="product_composition_mock">Water, Propylene Glycol, Dipropylene Glycol, Lauric acid, Myristic Acid, Potassium Hydroxide, Lauryl Hydroxysultaine, Potassium Cocoate, Potassium Cocoyl Glycinate, Sodium Chloride, Glycerin, Phenoxyethanol, Chlorphenesin, Fragrance, Caprylyl Glycol, Ethylhexylglycerin, Capric acid, Palmitic Acid, Disodium EDTA, Sodium Bicarbonate, Cocamidopropyl Betaine, Butylene Glycol.</string>
+    <string name="add_to_cart_price">549₽</string>
+    <string name="add_to_cart_old_price">899₽</string>
+
+</resources>
