@@ -8,6 +8,7 @@
     <dimen name="title_2">14sp</dimen>
     <dimen name="title_2_height">18.2dp</dimen>
     <dimen name="title_3">12sp</dimen>
+    <dimen name="title_3_height">15.6dp</dimen>
     <dimen name="title_4">14sp</dimen>
     <dimen name="title_4_height">18.2dp</dimen>
     <dimen name="text_1">12sp</dimen>
@@ -25,7 +26,9 @@
     //margin
     <dimen name="margin_2dp_small">2dp</dimen>
     <dimen name="margin_3dp_small">3dp</dimen>
+    <dimen name="margin_4dp_small">4dp</dimen>
     <dimen name="margin_6dp_small">6dp</dimen>
+    <dimen name="margin_10dp_small">10dp</dimen>
     <dimen name="margin_16dp_medium">16dp</dimen>
     <dimen name="margin_32dp_large">32dp</dimen>
 

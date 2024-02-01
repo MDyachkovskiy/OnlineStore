@@ -14,6 +14,12 @@
         <item name="android:lineHeight">@dimen/title_2_height</item>
     </style>
 
+    <style name="title_3">
+        <item name="android:textSize">@dimen/title_3</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:lineHeight">@dimen/title_3_height</item>
+    </style>
+
     <style name="title_4">
         <item name="android:textSize">@dimen/title_4</item>
         <item name="fontFamily">@font/sf_pro_display_regular</item>
@@ -68,6 +74,19 @@
         <item name="android:textSize">@dimen/button_text_2</item>
         <item name="fontFamily">@font/sf_pro_display_medium</item>
         <item name="android:lineHeight">@dimen/button_text_2_height</item>
+    </style>
+
+    <style name="MyButton" parent="ShapeAppearanceOverlay.Material3.Button">
+        <item name="shapeAppearance">@style/AddButtonShape</item>
+        <item name="android:backgroundTint">@color/pink</item>
+    </style>
+
+    <style name="AddButtonShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerFamilyBottomLeft">cut</item>
+        <item name="cornerSizeTopLeft">8dp</item>
     </style>
 
     <style name="DiscountNotActiveButton" parent="ShapeAppearanceOverlay.Material3.Button">

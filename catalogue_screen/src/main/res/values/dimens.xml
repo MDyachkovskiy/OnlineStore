@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="catalogue_image_height">168dp</dimen>
+    <dimen name="catalogue_image_height">170dp</dimen>
     <dimen name="catalogue_image_width">144dp</dimen>
+
+    <dimen name="catalogue_item_width">170dp</dimen>
+    <dimen name="catalogue_item_height">290dp</dimen>
+
+    <dimen name="rating_icon_size">16dp</dimen>
+
+    <dimen name="btn_add_size">32dp</dimen>
 
 </resources>
