@@ -7,7 +7,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/toolbar_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -108,7 +108,7 @@
         android:layout_marginBottom="@dimen/margin_2dp_small"
         android:gravity="center"
         android:text="@string/license_text_first_line"
-        android:textColor="@color/grey"
+        android:textColor="@color/text_grey"
         app:layout_constraintBottom_toTopOf="@id/license_second_line"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -121,7 +121,7 @@
         android:layout_marginBottom="@dimen/margin_2dp_small"
         android:gravity="center"
         android:text="@string/license_text_second_line"
-        android:textColor="@color/grey"
+        android:textColor="@color/text_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

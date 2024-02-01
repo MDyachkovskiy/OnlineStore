@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="profile_info_block_height">50dp</dimen>
+    <dimen name="avatar_icon_size">24dp</dimen>
+    <dimen name="exit_button_size">32dp</dimen>
+    <dimen name="menu_icon_size">24dp</dimen>
+    <dimen name="logout_btn_height">50dp</dimen>
+
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="user_name_mock">Марина Иванова</string>
+    <string name="user_phone_mock">+7 993 877 44 02</string>
+    <string name="favorites_count_mock">1 товар</string>
+
+</resources>

@@ -34,7 +34,13 @@
     <string name="composition_label">Состав</string>
     <string name="add_to_cart">Добавить в корзину</string>
 
-
-
+    //account_profile
+    <string name="profile_title">Личный кабинет</string>
+    <string name="favorite_label">Избранное</string>
+    <string name="stores_label">Магазины</string>
+    <string name="feedback_label">Обратная связь</string>
+    <string name="offerta_label">Оферта</string>
+    <string name="return_label">Возврат товара</string>
+    <string name="logout_btn">Выйти</string>
 
 </resources>
