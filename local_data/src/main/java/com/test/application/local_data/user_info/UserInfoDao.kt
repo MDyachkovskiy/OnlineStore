@@ -9,8 +9,8 @@ import androidx.room.Query
 @Dao
 interface UserInfoDao {
 
-    @Query("SELECT * FROM UserInfoEntity")
-    fun getAllUsers() : List<UserInfoEntity>
+    @Query("SELECT * FROM UserInfoEntity WHERE isLogged = 1 LIMIT 1")
+    suspend fun getLoggedInUser(): UserInfoEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUserInfo(entity: UserInfoEntity)

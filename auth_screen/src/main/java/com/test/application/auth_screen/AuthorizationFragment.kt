@@ -1,17 +1,15 @@
 package com.test.application.auth_screen
 
-import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.test.application.auth_screen.databinding.FragmentAuthorizationBinding
 import com.test.application.core.view.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.fragment.app.viewModels
-import com.test.application.core.navigation.AuthNavigationListener
 
 @AndroidEntryPoint
 class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
@@ -19,19 +17,7 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
 ) {
 
     private val viewModel: AuthorizationViewModel by viewModels()
-    private var authNavigationListener: AuthNavigationListener? = null
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if(context is AuthNavigationListener) {
-            authNavigationListener = context
-        }
-    }
-
-    override fun onDetach() {
-        authNavigationListener = null
-        super.onDetach()
-    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setNameEditText()
@@ -96,12 +82,6 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
         val phoneValid = (binding.etPhoneNumber.text?.length ?: 0) >= 15
         binding.btnLogin.isEnabled = nameValid && secondNameValid && phoneValid
         saveAuthData()
-        navigateToMainScreen()
-
-    }
-
-    private fun navigateToMainScreen() {
-        authNavigationListener?.onAuthSuccess()
     }
 
     private fun saveAuthData() {
