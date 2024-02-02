@@ -1,6 +1,6 @@
 package com.test.application.local_data.mapper
 
-import com.test.application.core.domain.UserLogin
+import com.test.application.core.domain.auth.UserLogin
 import com.test.application.local_data.user_info.UserInfoEntity
 
 fun UserLogin.toEntity(): UserInfoEntity {

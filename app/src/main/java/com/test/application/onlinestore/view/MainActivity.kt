@@ -1,4 +1,4 @@
-package com.test.application.onlinestore
+package com.test.application.onlinestore.view
 
 import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +16,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.test.application.auth_screen.AuthorizationFragment
+import com.test.application.onlinestore.R
 import com.test.application.onlinestore.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 
@@ -37,7 +38,21 @@ class MainActivity : AppCompatActivity() {
     private fun setupBottomNavMenu(navController: NavController) {
         val bottomNav = findViewById<BottomNavigationView>(R.id.navigation_menu)
         bottomNav?.setupWithNavController(navController)
+
+        binding.navigationMenu.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    HomeFragment()
+                    true
+                }
+                R.id.nav_home, R.id.nav_catalogue, R.id.nav_cart, R.id.nav_action, R.id.nav_profile -> {
+                    false
+                }
+                else -> false
+            }
+        }
     }
+
 
     private fun setupNavHost() {
         val navHostFragment = supportFragmentManager

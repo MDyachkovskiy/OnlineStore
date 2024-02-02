@@ -1,4 +1,4 @@
-package com.test.application.onlinestore
+package com.test.application.onlinestore.view
 
 import androidx.lifecycle.ViewModel
 import com.test.application.core.repository.UserRepository

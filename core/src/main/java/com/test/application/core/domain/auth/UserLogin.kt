@@ -1,4 +1,4 @@
-package com.test.application.core.domain
+package com.test.application.core.domain.auth
 
 data class UserLogin(
     val id: Int = 0,

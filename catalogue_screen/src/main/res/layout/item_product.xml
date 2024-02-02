@@ -13,6 +13,7 @@
         android:layout_height="match_parent">
 
         <CheckBox
+            android:id="@+id/cb_favourite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_6dp_small"
@@ -33,7 +34,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/light_grey"
+            android:backgroundTint="@color/background_light_grey"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/margin_2dp_small"
             android:paddingVertical="@dimen/margin_2dp_small"
@@ -45,7 +46,7 @@
                 android:id="@+id/hotel_carousel_cv1"
                 android:layout_width="8dp"
                 android:layout_height="8dp"
-                android:backgroundTint="@color/pink"
+                android:backgroundTint="@color/element_pink"
                 app:cardCornerRadius="100dp" />
 
             <androidx.cardview.widget.CardView
@@ -53,27 +54,27 @@
                 android:layout_width="8dp"
                 android:layout_height="8dp"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="@color/grey"
+                android:backgroundTint="@color/element_light_grey"
                 app:cardCornerRadius="100dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/hotel_carousel_cv3"
                 android:layout_width="8dp"
                 android:layout_height="8dp"
-                android:backgroundTint="@color/grey"
+                android:backgroundTint="@color/element_light_grey"
                 app:cardCornerRadius="100dp" />
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/old_price"
+            android:id="@+id/tv_old_price"
             style="@style/element_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_6dp_small"
             android:layout_marginTop="@dimen/margin_2dp_small"
             android:text="749P"
-            android:textColor="@color/grey"
+            android:textColor="@color/text_grey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/product_image_carousel" />
 
@@ -84,9 +85,10 @@
             android:layout_marginStart="@dimen/margin_6dp_small"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/old_price">
+            app:layout_constraintTop_toBottomOf="@+id/tv_old_price">
 
             <TextView
+                android:id="@+id/tv_price_with_discount"
                 style="@style/title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,6 +102,7 @@
                 android:layout_marginStart="8dp">
 
                 <TextView
+                    android:id="@+id/tv_discount"
                     style="@style/element_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,7 +117,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/product_name"
+            android:id="@+id/tv_product_name"
             style="@style/title_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -128,7 +131,7 @@
             app:layout_constraintTop_toBottomOf="@id/actual_price_block" />
 
         <TextView
-            android:id="@+id/product_description"
+            android:id="@+id/tv_product_description"
             style="@style/title_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -138,7 +141,7 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/product_name" />
+            app:layout_constraintTop_toBottomOf="@id/tv_product_name" />
 
 
         <LinearLayout
@@ -148,7 +151,7 @@
             android:layout_margin="@dimen/margin_4dp_small"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/product_description">
+            app:layout_constraintTop_toBottomOf="@id/tv_product_description">
 
             <ImageView
                 android:layout_width="@dimen/rating_icon_size"
@@ -162,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="3dp"
-                android:textColor="@color/orange"
+                android:textColor="@color/text_orange"
                 tools:text="4.5" />
 
             <TextView
@@ -172,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                android:textColor="@color/grey"
+                android:textColor="@color/text_grey"
                 tools:text="(51)" />
 
         </LinearLayout>

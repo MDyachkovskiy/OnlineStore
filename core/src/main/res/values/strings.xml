@@ -57,4 +57,9 @@
     <string name="error_message">Произошла непредвиденная ошибка</string>
 
 
+    //formating
+    <string name="formatted_price">%1$s %2$s</string>
+    <string name="discount_format">-%1$d%%</string>
+    <string name="reviews_format">(%1$d)</string>
+
 </resources>

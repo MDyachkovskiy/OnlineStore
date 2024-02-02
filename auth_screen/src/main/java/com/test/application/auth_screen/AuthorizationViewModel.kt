@@ -1,7 +1,7 @@
 package com.test.application.auth_screen
 
 import androidx.lifecycle.ViewModel
-import com.test.application.core.domain.UserLogin
+import com.test.application.core.domain.auth.UserLogin
 import com.test.application.core.repository.AuthDataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
