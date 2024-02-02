@@ -74,6 +74,20 @@
         <item name="android:lineHeight">@dimen/price_text_height</item>
     </style>
 
+    <style name="menu_item_inactive" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:textSize">@dimen/caption_1</item>
+        <item name="itemTextColor">@color/text_dark_grey</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:lineHeight">@dimen/caption_1_height</item>
+    </style>
+
+    <style name="menu_item_active" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:textSize">@dimen/caption_1</item>
+        <item name="itemTextColor">@color/text_pink</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:lineHeight">@dimen/caption_1_height</item>
+    </style>
+
     <style name="AuthInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>

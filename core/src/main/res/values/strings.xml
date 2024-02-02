@@ -43,4 +43,18 @@
     <string name="return_label">Возврат товара</string>
     <string name="logout_btn">Выйти</string>
 
+    //favourites
+    <string name="favourites_title">Избранное</string>
+
+    //bottom_menu
+    <string name="menu_home">Главная</string>
+    <string name="menu_catalogue">Каталог</string>
+    <string name="menu_cart">Корзина</string>
+    <string name="menu_action">Акции</string>
+    <string name="menu_profile">Профиль</string>
+
+    //error_message
+    <string name="error_message">Произошла непредвиденная ошибка</string>
+
+
 </resources>

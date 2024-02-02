@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/catalogue_item_width"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    app:cardCornerRadius="8dp"
+    tools:ignore="contentDescription">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_6dp_small"
+            android:button="@drawable/selector_favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/product_image_carousel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/catalogue_image_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/background_light_grey"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/margin_2dp_small"
+            android:paddingVertical="@dimen/margin_2dp_small"
+            app:layout_constraintBottom_toBottomOf="@id/product_image_carousel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/hotel_carousel_cv1"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:backgroundTint="@color/background_pink"
+                app:cardCornerRadius="100dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/hotel_carousel_cv2"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="8dp"
+                android:backgroundTint="@color/text_grey"
+                app:cardCornerRadius="100dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/hotel_carousel_cv3"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:backgroundTint="@color/text_grey"
+                app:cardCornerRadius="100dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/old_price"
+            style="@style/element_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_6dp_small"
+            android:layout_marginTop="@dimen/margin_2dp_small"
+            android:text="749P"
+            android:textColor="@color/text_grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_image_carousel" />
+
+        <LinearLayout
+            android:id="@+id/actual_price_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_6dp_small"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/old_price">
+
+            <TextView
+                style="@style/title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="489 Р"
+                android:textColor="@color/black" />
+
+            <androidx.cardview.widget.CardView
+                style="@style/DiscountBlock"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    style="@style/element_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_6dp_small"
+                    android:layout_marginVertical="@dimen/margin_3dp_small"
+                    android:text="-35%"
+                    android:textColor="@color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/product_name"
+            style="@style/title_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_6dp_small"
+            android:layout_marginTop="@dimen/margin_2dp_small"
+            android:gravity="start"
+            android:text="ESFOLIO"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actual_price_block" />
+
+        <TextView
+            android:id="@+id/product_description"
+            style="@style/title_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_6dp_small"
+            android:layout_marginTop="@dimen/margin_2dp_small"
+            android:text="Лосьон для тела 'ESFOLIO' COENZYM Q10 Увлажняющий 500 мл"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_name" />
+
+
+        <LinearLayout
+            android:id="@+id/rating_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_4dp_small"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_description">
+
+            <ImageView
+                android:layout_width="@dimen/rating_icon_size"
+                android:layout_height="@dimen/rating_icon_size"
+                android:src="@drawable/ic_rating" />
+
+            <TextView
+                android:id="@+id/tv_product_rating"
+                style="@style/element_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/text_orange"
+                tools:text="4.5" />
+
+            <TextView
+                android:id="@+id/tv_rating_count"
+                style="@style/element_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/text_grey"
+                tools:text="(51)" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/MyButton"
+            android:layout_width="@dimen/btn_add_size"
+            android:layout_height="@dimen/btn_add_size"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_plus"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating_block" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

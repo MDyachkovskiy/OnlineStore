@@ -38,10 +38,12 @@
     <dimen name="margin_16dp_medium">16dp</dimen>
     <dimen name="margin_20dp_medium">20dp</dimen>
     <dimen name="margin_24dp_large">24dp</dimen>
+    <dimen name="margin_28dp_large">28dp</dimen>
     <dimen name="margin_32dp_large">32dp</dimen>
     <dimen name="margin_34dp_large">34dp</dimen>
 
     //element size
     <dimen name="toolbar_height">46dp</dimen>
+    <dimen name="bottom_navigation_menu_height">48dp</dimen>
 
 </resources>
