@@ -10,5 +10,6 @@ data class Product(
     val price: Price = Price(),
     val subtitle: String = "",
     val tags: List<String> = listOf(),
-    val title: String = ""
+    val title: String = "",
+    var isFavourite: Boolean = false
 )

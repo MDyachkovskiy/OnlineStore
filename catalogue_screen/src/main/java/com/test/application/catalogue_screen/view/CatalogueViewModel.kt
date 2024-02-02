@@ -1,7 +1,6 @@
 package com.test.application.catalogue_screen.view
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import com.test.application.core.domain.product.Product
 import com.test.application.core.repository.CatalogueInteractor
 import com.test.application.core.utils.AppState
 import com.test.application.core.view.BaseViewModel
@@ -9,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,16 +20,20 @@ class CatalogueViewModel @Inject constructor(
     private val _stateFlow = MutableStateFlow<AppState>(AppState.Loading)
     val stateFlow: StateFlow<AppState> get() = _stateFlow
 
-    private val _isFavorite = MutableLiveData<Boolean>()
-    val isFavorite: LiveData<Boolean> get() = _isFavorite
+    private val _isFavourite = MutableStateFlow<Map<String, Boolean>>(emptyMap())
+    val isFavourite: StateFlow<Map<String, Boolean>> get() = _isFavourite
 
     fun getProductsFromRemoteSource() {
         _stateFlow.value = AppState.Loading
         viewModelCoroutineScope.launch {
             try {
-                val contactsFlow = interactor.getProducts()
-                contactsFlow.collect { products ->
-                    _stateFlow.value = AppState.Success(products)
+                val products = interactor.getProducts().first()
+                val productIds = products.map { it.id }
+                interactor.checkFavoriteItems(productIds).collect { favoritesStatus ->
+                    val updatedProducts = products.map { product ->
+                        product.copy(isFavourite = favoritesStatus[product.id] ?: false)
+                    }
+                    _stateFlow.value = AppState.Success(updatedProducts)
                 }
             } catch (e:Throwable) {
                 _stateFlow.emit(AppState.Error(e))
@@ -37,21 +41,15 @@ class CatalogueViewModel @Inject constructor(
         }
     }
 
-    fun saveFavoriteItem (id: String) {
+    fun saveFavoriteItem (product: Product) {
         viewModelCoroutineScope.launch(Dispatchers.IO) {
-            interactor.saveFavoriteItem(id)
+            interactor.saveFavoriteItem(product)
         }
     }
 
     fun deleteFavoriteItem (id: String) {
         viewModelCoroutineScope.launch(Dispatchers.IO) {
             interactor.deleteFavoriteItem(id)
-        }
-    }
-
-    fun checkFavoriteItem(id: String) {
-        viewModelCoroutineScope.launch(Dispatchers.IO) {
-            _isFavorite.postValue(interactor.checkFavoriteItem(id))
         }
     }
 }

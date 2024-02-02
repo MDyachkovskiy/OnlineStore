@@ -26,7 +26,19 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
+        observeFavourites()
     }
+
+    private fun observeFavourites() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.isFavourite.collect { favourites ->
+                    productsAdapter.updateFavourites(favourites)
+                }
+            }
+        }
+    }
+
     override fun setupData(data: List<Product>) {
         initRecyclerView(data)
     }
@@ -36,6 +48,17 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
         productsAdapter.updateContacts(data)
         binding.rvProductsCatalogue.adapter = productsAdapter
         binding.rvProductsCatalogue.layoutManager = GridLayoutManager(requireContext(), 2)
+        handleFavouritesCheck()
+    }
+
+    private fun handleFavouritesCheck() {
+        productsAdapter.favouriteListener = {product, isFavourite ->
+            if(isFavourite) {
+                viewModel.saveFavoriteItem(product)
+            } else {
+                viewModel.deleteFavoriteItem(product.id)
+            }
+        }
     }
 
     private fun initViewModel() {

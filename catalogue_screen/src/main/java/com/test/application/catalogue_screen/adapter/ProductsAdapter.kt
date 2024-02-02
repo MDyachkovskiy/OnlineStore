@@ -13,7 +13,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
     private var productsList: MutableList<Product> = mutableListOf()
 
-    var listener: ((id: String) -> Unit)? = null
+    var favouriteListener: ((product: Product, isFavourite: Boolean) -> Unit)? = null
 
     fun updateContacts(newProducts: List<Product>) {
         val diffCallback = ProductsDiffUtils(productsList, newProducts)
@@ -22,6 +22,12 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
         productsList.clear()
         productsList.addAll(newProducts)
         diffResult.dispatchUpdatesTo(this)
+    }
+    fun updateFavourites(favourites: Map<String, Boolean>) {
+        productsList = productsList.map { product ->
+            product.copy(isFavourite = favourites[product.id] ?: false)
+        }.toMutableList()
+        updateContacts(productsList)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsAdapter.ViewHolder {
@@ -44,6 +50,17 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
         fun bind(product: Product) {
             setTextData(product)
+            setFavouriteCheckBox(product)
+        }
+
+        private fun setFavouriteCheckBox(product: Product) {
+            with(binding.cbFavourite) {
+                setOnCheckedChangeListener(null)
+                isChecked = product.isFavourite
+                setOnCheckedChangeListener { _, isChecked ->
+                    favouriteListener?.invoke(product, isChecked)
+                }
+            }
         }
 
         private fun setTextData(product: Product) {

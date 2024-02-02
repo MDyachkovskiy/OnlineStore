@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class CatalogueInteractorImpl @Inject constructor(
     private val remoteData: RemoteDataRepository,
-    private val localData: LocalDataRepository
+    private val favouritesRepository: FavouritesRepository
 ) : CatalogueInteractor {
     override suspend fun getProducts(): Flow<List<Product>> {
         return flow {
@@ -18,15 +18,15 @@ class CatalogueInteractorImpl @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    override suspend fun saveFavoriteItem(id: String) {
-        TODO("Not yet implemented")
+    override suspend fun saveFavoriteItem(product: Product) {
+        favouritesRepository.saveFavoriteItem(product)
     }
 
     override suspend fun deleteFavoriteItem(id: String) {
-        TODO("Not yet implemented")
+        favouritesRepository.deleteFavoriteItem(id)
     }
 
-    override suspend fun checkFavoriteItem(id: String): Boolean {
-        TODO("Not yet implemented")
+    override suspend fun checkFavoriteItems(ids: List<String>): Flow<Map<String, Boolean>> {
+        return favouritesRepository.checkFavoriteItems(ids)
     }
 }
