@@ -92,11 +92,13 @@
     <Button
         android:id="@+id/btn_login"
         style="@style/LoginButton"
+        android:backgroundTint="@color/selector_login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_16dp_medium"
         android:layout_marginTop="@dimen/margin_32dp_large"
         android:text="@string/login_btn_text"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_layout_phone_number" />
