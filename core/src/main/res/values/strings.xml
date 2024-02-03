@@ -55,6 +55,8 @@
 
     //error_message
     <string name="error_message">Произошла непредвиденная ошибка</string>
+    <string name="unknown_sorting_option">Выбрана неизвестная опция сортировки</string>
+
 
 
     //formating

@@ -2,17 +2,20 @@ package com.test.application.catalogue_screen.view
 
 import android.os.Bundle
 import android.view.View
-import com.test.application.catalogue_screen.databinding.FragmentCatalogueBinding
-import com.test.application.core.domain.product.Product
-import com.test.application.core.utils.AppState
-import com.test.application.core.view.BaseFragmentWithAppState
-import dagger.hilt.android.AndroidEntryPoint
+import android.widget.AdapterView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.test.application.catalogue_screen.adapter.ProductsAdapter
+import com.test.application.catalogue_screen.databinding.FragmentCatalogueBinding
+import com.test.application.catalogue_screen.utils.sorting.SortingManager
+import com.test.application.catalogue_screen.utils.sorting.SortingOption
+import com.test.application.core.domain.product.Product
+import com.test.application.core.utils.AppState
+import com.test.application.core.view.BaseFragmentWithAppState
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -21,12 +24,33 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
 ) {
 
     private val viewModel: CatalogueViewModel by viewModels()
-    private lateinit var productsAdapter: ProductsAdapter
+    private val productsAdapter: ProductsAdapter by lazy { ProductsAdapter() }
+    private lateinit var sortingManager: SortingManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
         observeFavourites()
+        initRecyclerView(emptyList())
+        setSortingSpinner()
+    }
+
+    private fun setSortingSpinner() {
+        sortingManager = SortingManager(productsAdapter)
+        binding.sortSpinner.mySpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    val selectedOption = when (p2) {
+                        0 -> SortingOption.BY_POPULARITY
+                        1 -> SortingOption.BY_PRICE_DESC
+                        2 -> SortingOption.BY_PRICE_ASC
+                        else -> throw IllegalArgumentException(
+                            getString(com.test.application.core.R.string.unknown_sorting_option))
+                    }
+                    sortingManager.onSortingOptionSelected(selectedOption)
+                }
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
+            }
     }
 
     private fun observeFavourites() {
@@ -44,7 +68,6 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     }
 
     private fun initRecyclerView(data: List<Product>) {
-        productsAdapter = ProductsAdapter()
         productsAdapter.updateContacts(data)
         binding.rvProductsCatalogue.adapter = productsAdapter
         binding.rvProductsCatalogue.layoutManager = GridLayoutManager(requireContext(), 2)

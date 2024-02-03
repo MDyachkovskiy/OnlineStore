@@ -30,6 +30,10 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
         updateContacts(productsList)
     }
 
+    fun getProducts(): List<Product> {
+        return productsList
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsAdapter.ViewHolder {
         val binding = ItemProductBinding.inflate(
             LayoutInflater.from(parent.context),

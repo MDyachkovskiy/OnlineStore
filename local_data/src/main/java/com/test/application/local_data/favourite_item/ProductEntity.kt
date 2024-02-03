@@ -10,5 +10,5 @@ data class ProductEntity(
     val description: String,
     val ingredients: String,
     val subtitle: String,
-    val title: String
+    val title: String,
 )
