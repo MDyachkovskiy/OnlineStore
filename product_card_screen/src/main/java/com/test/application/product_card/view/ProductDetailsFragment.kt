@@ -10,6 +10,7 @@ import com.test.application.core.utils.PRODUCT_BUNDLE_KEY
 import com.test.application.core.utils.image_slider.ImageSliderManager
 import com.test.application.core.view.BaseFragment
 import com.test.application.product_card.databinding.FragmentProductDetailBinding
+import com.test.application.product_card.utils.FeaturesManager
 import com.test.application.product_card.utils.ToggleVisibilityHelper
 import com.test.application.product_card.utils.getReviewCountString
 import com.test.application.product_card.utils.getStockQuantityString
@@ -19,7 +20,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
     FragmentProductDetailBinding::inflate
 ) {
-
     private val productId: String by lazy {
         arguments?.getString(PRODUCT_BUNDLE_KEY) ?:
         throw IllegalArgumentException(getString(com.test.application.core.R.string.unknown_product_id))
@@ -51,8 +51,13 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
             setImageSlider(product.imageResIds)
             setFavouriteCheckBox(product)
             setTextData(product)
+            setFeaturesBlock(product)
         }
+    }
 
+    private fun setFeaturesBlock(product: Product) {
+        val featuresManager = FeaturesManager(requireContext(), binding.featuresBlock)
+        featuresManager.addFeatures(product.info)
     }
 
     private fun setTextData(product: Product?) {

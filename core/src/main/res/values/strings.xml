@@ -28,9 +28,6 @@
     <string name="hide_text">Скрыть</string>
     <string name="show_more_text">Подробнее</string>
     <string name="features_label">Характеристики</string>
-    <string name="item_code_label">Артикул товара</string>
-    <string name="application_area_label">Область использования</string>
-    <string name="production_country_label">Страна производства</string>
     <string name="composition_label">Состав</string>
     <string name="add_to_cart">Добавить в корзину</string>
 

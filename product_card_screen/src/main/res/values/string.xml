@@ -11,9 +11,6 @@
     <string name="discount_mock">-35%</string>
     <string name="rating_mock">4.3</string>
     <string name="review_count_mock">4 отзыва</string>
-    <string name="item_code_mock">133987</string>
-    <string name="application_area_mock">Лицо</string>
-    <string name="production_country_mock">Республика Корея</string>
     <string name="product_composition_mock">Water, Propylene Glycol, Dipropylene Glycol, Lauric acid, Myristic Acid, Potassium Hydroxide, Lauryl Hydroxysultaine, Potassium Cocoate, Potassium Cocoyl Glycinate, Sodium Chloride, Glycerin, Phenoxyethanol, Chlorphenesin, Fragrance, Caprylyl Glycol, Ethylhexylglycerin, Capric acid, Palmitic Acid, Disodium EDTA, Sodium Bicarbonate, Cocamidopropyl Betaine, Butylene Glycol.</string>
     <string name="add_to_cart_price">549₽</string>
     <string name="add_to_cart_old_price">899₽</string>

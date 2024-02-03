@@ -250,9 +250,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_show_hide_description" />
 
-        <include
+        <LinearLayout
             android:id="@+id/features_block"
-            layout="@layout/features_layout"
+            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_16dp_medium"
