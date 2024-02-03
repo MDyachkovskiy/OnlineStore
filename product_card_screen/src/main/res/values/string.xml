@@ -18,4 +18,13 @@
     <string name="add_to_cart_price">549₽</string>
     <string name="add_to_cart_old_price">899₽</string>
 
+    //formating
+    <string name="available_products">Доступно для заказа %d %s</string>
+    <string name="product_one_stock">штука</string>
+    <string name="product_few_stock">штуки</string>
+    <string name="product_many_stock">штук</string>
+    <string name="reviews_count">%d %s</string>
+    <string name="many_reviews">отзывов</string>
+    <string name="one_review">отзыв</string>
+    <string name="few_reviews">отзыва</string>
 </resources>

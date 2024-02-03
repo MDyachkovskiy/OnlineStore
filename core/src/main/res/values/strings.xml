@@ -26,7 +26,7 @@
     <string name="details_title">Каталог</string>
     <string name="description_label">Описание</string>
     <string name="hide_text">Скрыть</string>
-    <string name="dropdown_text">Подробнее</string>
+    <string name="show_more_text">Подробнее</string>
     <string name="features_label">Характеристики</string>
     <string name="item_code_label">Артикул товара</string>
     <string name="application_area_label">Область использования</string>
@@ -56,6 +56,7 @@
     //error_message
     <string name="error_message">Произошла непредвиденная ошибка</string>
     <string name="unknown_sorting_option">Выбрана неизвестная опция сортировки</string>
+    <string name="unknown_product_id">Ошибка в получении id товара</string>
 
     //formating
     <string name="formatted_price">%1$s %2$s</string>

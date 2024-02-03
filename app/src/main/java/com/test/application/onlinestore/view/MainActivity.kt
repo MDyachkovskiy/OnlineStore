@@ -16,11 +16,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.test.application.auth_screen.AuthorizationFragment
+import com.test.application.core.navigation.OpenProductDetails
 import com.test.application.onlinestore.R
 import com.test.application.onlinestore.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OpenProductDetails {
 
     private lateinit var binding : ActivityMainBinding
 
@@ -109,5 +110,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.dispatchTouchEvent(event)
+    }
+
+    override fun openProductDetails(bundle: Bundle) {
+        navController.navigate(R.id.action_fromCatalogue_to_productDetails, bundle)
     }
 }

@@ -14,6 +14,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
     private var productsList: MutableList<Product> = mutableListOf()
 
+    var rootListener: ((id: String) -> Unit)? = null
     var favouriteListener: ((product: Product, isFavourite: Boolean) -> Unit)? = null
 
     fun updateContacts(newProducts: List<Product>) {
@@ -57,6 +58,10 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
             setTextData(product)
             setFavouriteCheckBox(product)
             setImageSlider(product.imageResIds)
+
+            binding.root.setOnClickListener {
+                rootListener?.invoke(product.id)
+            }
         }
 
         private fun setImageSlider(imageResIds: List<Int>) {

@@ -3,7 +3,8 @@ package com.test.application.catalogue_screen.view
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import androidx.fragment.app.viewModels
+import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -14,7 +15,9 @@ import com.test.application.catalogue_screen.utils.sorting.SortingManager
 import com.test.application.catalogue_screen.utils.sorting.SortingOption
 import com.test.application.catalogue_screen.utils.tags.TagsManager
 import com.test.application.core.domain.product.Product
+import com.test.application.core.navigation.OpenProductDetails
 import com.test.application.core.utils.AppState
+import com.test.application.core.utils.PRODUCT_BUNDLE_KEY
 import com.test.application.core.view.BaseFragmentWithAppState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -24,7 +27,7 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     FragmentCatalogueBinding::inflate
 ) {
 
-    private val viewModel: CatalogueViewModel by viewModels()
+    private val viewModel: CatalogueViewModel by activityViewModels()
     private val productsAdapter: ProductsAdapter by lazy { ProductsAdapter() }
     private lateinit var sortingManager: SortingManager
     private lateinit var tagsManager: TagsManager
@@ -86,6 +89,14 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
         binding.rvProductsCatalogue.adapter = productsAdapter
         binding.rvProductsCatalogue.layoutManager = GridLayoutManager(requireContext(), 2)
         handleFavouritesCheck()
+        handleRootClickListener()
+    }
+
+    private fun handleRootClickListener() {
+        productsAdapter.rootListener = { id ->
+            val bundle = bundleOf(PRODUCT_BUNDLE_KEY to id)
+            (activity as OpenProductDetails).openProductDetails(bundle)
+        }
     }
 
     private fun handleFavouritesCheck() {

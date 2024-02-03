@@ -12,7 +12,25 @@
 
     <fragment
         android:id="@+id/nav_catalogue"
-        android:label="@string/menu_catalogue" />
+        android:name="com.test.application.catalogue_screen.view.CatalogueFragment"
+        android:label="@string/menu_catalogue"
+        app:layout="@layout/fragment_catalogue">
+        <action
+            android:id="@+id/action_fromCatalogue_to_productDetails"
+            app:destination="@+id/product_details"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/product_details"
+        android:name="com.test.application.product_card.view.ProductDetailsFragment"
+        app:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="product_id"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_fromDetails_to_Catalogue"
+            app:destination="@+id/product_details"/>
+    </fragment>
 
     <fragment
         android:id="@+id/nav_cart"

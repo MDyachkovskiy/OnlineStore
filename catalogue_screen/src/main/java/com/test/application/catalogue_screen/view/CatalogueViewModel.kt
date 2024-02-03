@@ -1,5 +1,8 @@
 package com.test.application.catalogue_screen.view
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.map
 import com.test.application.core.domain.product.Product
 import com.test.application.core.domain.product.ProductImage
 import com.test.application.core.repository.CatalogueInteractor
@@ -17,6 +20,8 @@ import javax.inject.Inject
 class CatalogueViewModel @Inject constructor(
     private val interactor: CatalogueInteractor
 ) : BaseViewModel<AppState>() {
+
+    private val productsData = MutableLiveData<List<Product>>()
 
     private val _stateFlow = MutableStateFlow<AppState>(AppState.Loading)
     val stateFlow: StateFlow<AppState> get() = _stateFlow
@@ -52,6 +57,7 @@ class CatalogueViewModel @Inject constructor(
             val imageResIds = listOf(imageResId1, imageResId2)
             product.copy(imageResIds = imageResIds)
         }
+        productsData.postValue(productsWithImages)
         _stateFlow.value = AppState.Success(productsWithImages)
     }
 
@@ -64,6 +70,12 @@ class CatalogueViewModel @Inject constructor(
     fun deleteFavoriteItem (id: String) {
         viewModelCoroutineScope.launch(Dispatchers.IO) {
             interactor.deleteFavoriteItem(id)
+        }
+    }
+
+    fun getProductDetails(productId: String): LiveData<Product?> {
+        return productsData.map { products ->
+            products.find { it.id == productId }
         }
     }
 }
