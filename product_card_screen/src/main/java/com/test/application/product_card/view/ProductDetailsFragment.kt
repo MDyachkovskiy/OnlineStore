@@ -11,6 +11,7 @@ import com.test.application.core.utils.image_slider.ImageSliderManager
 import com.test.application.core.view.BaseFragment
 import com.test.application.product_card.databinding.FragmentProductDetailBinding
 import com.test.application.product_card.utils.FeaturesManager
+import com.test.application.product_card.utils.StarsRatingManager
 import com.test.application.product_card.utils.ToggleTextVisibilityHelper
 import com.test.application.product_card.utils.ToggleViewVisibilityHelper
 import com.test.application.product_card.utils.getReviewCountString
@@ -27,11 +28,17 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
     }
 
     private val viewModel: CatalogueViewModel by activityViewModels()
+    private lateinit var ratingManager : StarsRatingManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
         setupToggleButtons()
+        setupRatingBlock()
+    }
+
+    private fun setupRatingBlock() {
+       ratingManager = StarsRatingManager(binding.ratingBlock.starImagesBlock)
     }
 
     private fun setupToggleButtons() {
@@ -85,10 +92,11 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
     }
 
     private fun setProductRating(product: Product?) {
-        if(product?.available != null) {
+        if(product?.feedback != null) {
             with(binding.ratingBlock) {
                 tvRating.text = product.feedback.rating.toString()
                 tvReviewCount.text = getReviewCountString(requireContext(), product.feedback.count)
+                ratingManager.setRating(product.feedback.rating)
             }
         }
     }
@@ -128,5 +136,4 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
             }
         }
     }
-
 }

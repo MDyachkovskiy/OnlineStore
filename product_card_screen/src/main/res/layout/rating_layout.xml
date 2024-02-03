@@ -6,35 +6,43 @@
     android:orientation="horizontal"
     tools:ignore="contentDescription">
 
-    <ImageView
-        android:id="@+id/first_star"
-        android:layout_width="@dimen/rating_icon_width"
-        android:layout_height="@dimen/rating_icon_height"
-        android:src="@drawable/ic_rating" />
+    <LinearLayout
+        android:id="@+id/star_images_block"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/second_star"
-        android:layout_width="@dimen/rating_icon_width"
-        android:layout_height="@dimen/rating_icon_height"
-        android:src="@drawable/ic_rating" />
+        <ImageView
+            android:id="@+id/first_star"
+            android:layout_width="@dimen/rating_icon_width"
+            android:layout_height="@dimen/rating_icon_height"
+            android:src="@drawable/ic_star" />
 
-    <ImageView
-        android:id="@+id/third_star"
-        android:layout_width="@dimen/rating_icon_width"
-        android:layout_height="@dimen/rating_icon_height"
-        android:src="@drawable/ic_rating" />
+        <ImageView
+            android:id="@+id/second_star"
+            android:layout_width="@dimen/rating_icon_width"
+            android:layout_height="@dimen/rating_icon_height"
+            android:src="@drawable/ic_star" />
 
-    <ImageView
-        android:id="@+id/fourth_star"
-        android:layout_width="@dimen/rating_icon_width"
-        android:layout_height="@dimen/rating_icon_height"
-        android:src="@drawable/ic_rating" />
+        <ImageView
+            android:id="@+id/third_star"
+            android:layout_width="@dimen/rating_icon_width"
+            android:layout_height="@dimen/rating_icon_height"
+            android:src="@drawable/ic_star" />
 
-    <ImageView
-        android:id="@+id/fifth_star"
-        android:layout_width="@dimen/rating_icon_width"
-        android:layout_height="@dimen/rating_icon_height"
-        android:src="@drawable/ic_rating" />
+        <ImageView
+            android:id="@+id/fourth_star"
+            android:layout_width="@dimen/rating_icon_width"
+            android:layout_height="@dimen/rating_icon_height"
+            android:src="@drawable/ic_star" />
+
+        <ImageView
+            android:id="@+id/fifth_star"
+            android:layout_width="@dimen/rating_icon_width"
+            android:layout_height="@dimen/rating_icon_height"
+            android:src="@drawable/ic_star" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_rating"
