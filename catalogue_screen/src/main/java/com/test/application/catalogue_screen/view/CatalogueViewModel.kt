@@ -1,6 +1,7 @@
 package com.test.application.catalogue_screen.view
 
 import com.test.application.core.domain.product.Product
+import com.test.application.core.domain.product.ProductImage
 import com.test.application.core.repository.CatalogueInteractor
 import com.test.application.core.utils.AppState
 import com.test.application.core.view.BaseViewModel
@@ -28,17 +29,30 @@ class CatalogueViewModel @Inject constructor(
         viewModelCoroutineScope.launch {
             try {
                 val products = interactor.getProducts().first()
-                val productIds = products.map { it.id }
-                interactor.checkFavoriteItems(productIds).collect { favoritesStatus ->
-                    val updatedProducts = products.map { product ->
-                        product.copy(isFavourite = favoritesStatus[product.id] ?: false)
-                    }
-                    _stateFlow.value = AppState.Success(updatedProducts)
-                }
+                updateFavouriteStatus(products)
             } catch (e:Throwable) {
                 _stateFlow.emit(AppState.Error(e))
             }
         }
+    }
+
+    private suspend fun updateFavouriteStatus(products: List<Product>) {
+        val productIds = products.map { it.id }
+        interactor.checkFavoriteItems(productIds).collect { favoritesStatus ->
+            val updatedProducts = products.map { product ->
+                product.copy(isFavourite = favoritesStatus[product.id] ?: false)
+            }
+            addImagesToProducts(updatedProducts)
+        }
+    }
+
+    private fun addImagesToProducts(products: List<Product>) {
+        val productsWithImages = products.map { product ->
+            val (imageResId1, imageResId2) = ProductImage.findImagesByProductId(product.id) ?: Pair(0, 0)
+            val imageResIds = listOf(imageResId1, imageResId2)
+            product.copy(imageResIds = imageResIds)
+        }
+        _stateFlow.value = AppState.Success(productsWithImages)
     }
 
     fun saveFavoriteItem (product: Product) {

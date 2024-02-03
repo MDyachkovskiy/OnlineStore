@@ -27,7 +27,9 @@ fun Product.toEntity(): ProductEntity {
         description = description,
         ingredients = ingredients,
         subtitle = subtitle,
-        title = title
+        title = title,
+        isFavourite = isFavourite,
+        imageResIds = imageResIds
     )
 }
 

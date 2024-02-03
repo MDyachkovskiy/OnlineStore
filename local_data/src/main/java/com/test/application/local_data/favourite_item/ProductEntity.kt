@@ -11,4 +11,6 @@ data class ProductEntity(
     val ingredients: String,
     val subtitle: String,
     val title: String,
+    val isFavourite: Boolean,
+    val imageResIds: List<Int>
 )

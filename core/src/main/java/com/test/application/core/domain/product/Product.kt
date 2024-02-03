@@ -11,5 +11,6 @@ data class Product(
     val subtitle: String = "",
     val tags: List<String> = listOf(),
     val title: String = "",
-    var isFavourite: Boolean = false
+    var isFavourite: Boolean = false,
+    val imageResIds: List<Int> = listOf()
 )
