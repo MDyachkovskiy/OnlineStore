@@ -20,6 +20,15 @@ fun UserLogin.toEntity(): UserInfoEntity {
     )
 }
 
+fun UserInfoEntity.toDomain(): UserLogin {
+    return UserLogin(
+        id = this.id,
+        name = this.name,
+        secondName = this.secondName,
+        phoneNumber = this.phoneNumber
+    )
+}
+
 fun Product.toEntity(): ProductEntity {
     return ProductEntity(
         id = id,

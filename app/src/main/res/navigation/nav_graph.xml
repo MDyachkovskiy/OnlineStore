@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/nav_catalogue">
 
@@ -29,7 +30,7 @@
             app:argType="string"/>
         <action
             android:id="@+id/action_fromDetails_to_Catalogue"
-            app:destination="@+id/product_details"/>
+            app:destination="@+id/nav_catalogue"/>
     </fragment>
 
     <fragment
@@ -42,6 +43,21 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:label="@string/menu_profile" />
+        android:name="com.test.application.account_profile_screen.view.AccountProfileFragment"
+        tools:layout="@layout/fragment_account_profile"
+        android:label="@string/menu_profile" >
+        <action
+            android:id="@+id/action_fromProfile_to_Favourites"
+            app:destination="@+id/favourites"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/favourites"
+        android:name="com.test.application.favorite_screen.view.FavouritesFragment"
+        app:layout="@layout/fragment_favourites">
+        <action
+            android:id="@+id/action_fromFavourites_to_Profile"
+            app:destination="@+id/nav_profile"/>
+    </fragment>
 
 </navigation>

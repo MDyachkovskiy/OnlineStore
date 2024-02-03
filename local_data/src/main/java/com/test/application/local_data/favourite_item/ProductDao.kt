@@ -30,4 +30,7 @@ interface ProductDao {
 
     @Query("SELECT id FROM products WHERE id IN (:ids)")
     fun getFavoriteProductIds(ids: List<String>): Flow<List<String>>
+
+    @Query("SELECT COUNT(*) FROM products WHERE isFavourite = 1")
+    suspend fun countFavorites(): Int
 }

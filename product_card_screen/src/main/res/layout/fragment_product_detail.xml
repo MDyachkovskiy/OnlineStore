@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="view.ProductDetailsFragment"
     tools:ignore="contentDescription">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -252,10 +253,10 @@
 
         <LinearLayout
             android:id="@+id/features_block"
-            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_16dp_medium"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/features_label" />
@@ -288,8 +289,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_16dp_medium"
-            android:lines="2"
             android:ellipsize="end"
+            android:lines="2"
             android:text="@string/product_composition_mock"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/favorite_block_constraints"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -31,6 +32,7 @@
                 app:tint="@color/element_pink" />
 
             <TextView
+                android:id="@+id/favorite_label"
                 style="@style/title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,6 +44,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tv_favorite_count"
                 style="@style/caption_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
