@@ -12,6 +12,7 @@ import com.test.application.catalogue_screen.adapter.ProductsAdapter
 import com.test.application.catalogue_screen.databinding.FragmentCatalogueBinding
 import com.test.application.catalogue_screen.utils.sorting.SortingManager
 import com.test.application.catalogue_screen.utils.sorting.SortingOption
+import com.test.application.catalogue_screen.utils.tags.TagsManager
 import com.test.application.core.domain.product.Product
 import com.test.application.core.utils.AppState
 import com.test.application.core.view.BaseFragmentWithAppState
@@ -26,6 +27,8 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     private val viewModel: CatalogueViewModel by viewModels()
     private val productsAdapter: ProductsAdapter by lazy { ProductsAdapter() }
     private lateinit var sortingManager: SortingManager
+    private lateinit var tagsManager: TagsManager
+    private var originalProductsList: List<Product> = listOf()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,6 +36,16 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
         observeFavourites()
         initRecyclerView(emptyList())
         setSortingSpinner()
+        setTagsFilter()
+    }
+
+    private fun setTagsFilter() {
+        tagsManager = TagsManager(requireContext(), binding.chipTagFilters) { selectedTag ->
+            val filteredProducts = tagsManager.filterProductsByTag(originalProductsList, selectedTag)
+            productsAdapter.updateContacts(filteredProducts)
+        }
+        val tags = resources.getStringArray(com.test.application.core.R.array.tags_array)
+        tagsManager.setupTags(tags)
     }
 
     private fun setSortingSpinner() {
@@ -64,6 +77,7 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     }
 
     override fun setupData(data: List<Product>) {
+        originalProductsList = data
         initRecyclerView(data)
     }
 
