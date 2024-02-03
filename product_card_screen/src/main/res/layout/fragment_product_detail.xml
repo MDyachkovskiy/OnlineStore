@@ -288,6 +288,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_16dp_medium"
+            android:lines="2"
             android:ellipsize="end"
             android:text="@string/product_composition_mock"
             app:layout_constraintEnd_toEndOf="parent"
@@ -301,7 +302,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16dp_medium"
             android:layout_marginTop="@dimen/margin_10dp_small"
-            android:text="@string/hide_text"
+            android:text="@string/show_more_text"
             android:textColor="@color/text_grey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_product_composition" />
@@ -326,7 +327,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tv_product_price"
+                    android:id="@+id/tv_btn_product_price"
                     style="@style/button_text_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -338,7 +339,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_old_price"
+                    android:id="@+id/tv_btn_old_price"
                     style="@style/caption_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -347,7 +348,7 @@
                     android:text="@string/add_to_cart_old_price"
                     android:textColor="@color/text_light_pink"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tv_product_price"
+                    app:layout_constraintStart_toEndOf="@+id/tv_btn_product_price"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView

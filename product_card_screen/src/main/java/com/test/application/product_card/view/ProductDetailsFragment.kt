@@ -11,7 +11,8 @@ import com.test.application.core.utils.image_slider.ImageSliderManager
 import com.test.application.core.view.BaseFragment
 import com.test.application.product_card.databinding.FragmentProductDetailBinding
 import com.test.application.product_card.utils.FeaturesManager
-import com.test.application.product_card.utils.ToggleVisibilityHelper
+import com.test.application.product_card.utils.ToggleTextVisibilityHelper
+import com.test.application.product_card.utils.ToggleViewVisibilityHelper
 import com.test.application.product_card.utils.getReviewCountString
 import com.test.application.product_card.utils.getStockQuantityString
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,10 +35,9 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
     }
 
     private fun setupToggleButtons() {
-        ToggleVisibilityHelper(requireContext(),
-            binding.btnShowHideDescription, binding.tvProductDescription)
-        ToggleVisibilityHelper(requireContext(),
-            binding.btnShowHideComposition, binding.tvProductComposition)
+        ToggleViewVisibilityHelper(binding.btnShowHideDescription, binding.btnBrand,
+            binding.tvProductDescription)
+        ToggleTextVisibilityHelper(binding.btnShowHideComposition, binding.tvProductComposition)
     }
 
     private fun initViewModel() {
@@ -51,7 +51,6 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
             setImageSlider(product.imageResIds)
             setFavouriteCheckBox(product)
             setTextData(product)
-            setFeaturesBlock(product)
         }
     }
 
@@ -60,20 +59,28 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
         featuresManager.addFeatures(product.info)
     }
 
-    private fun setTextData(product: Product?) {
-        setProductTitle(product)
+    private fun setTextData(product: Product) {
+        setProductMainTitle(product)
         setProductRating(product)
-        product?.price?.let { serProductPrice(it) }
+        setProductPrice(product.price)
+        setFeaturesBlock(product)
     }
 
-    private fun serProductPrice(price: Price) {
+    private fun setProductPrice(price: Price) {
+        val actualPrice = getString(com.test.application.core.R.string.formatted_price,
+            price.priceWithDiscount,price.unit)
+        val oldPrice = getString(com.test.application.core.R.string.formatted_price,
+            price.price, price.unit)
+
         with(binding.priceBlock) {
-            tvActualPrice.text = getString(com.test.application.core.R.string.formatted_price,
-                price.priceWithDiscount,price.unit)
+            tvActualPrice.text = actualPrice
             tvDiscount.text = getString(com.test.application.core.R.string.discount_format,
                 price.discount)
-            tvOldPrice.text = getString(com.test.application.core.R.string.formatted_price,
-                price.price, price.unit)
+            tvOldPrice.text = oldPrice
+        }
+        with(binding) {
+            tvBtnOldPrice.text = oldPrice
+            tvBtnProductPrice.text = actualPrice
         }
     }
 
@@ -86,7 +93,7 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
         }
     }
 
-    private fun setProductTitle(product: Product?) {
+    private fun setProductMainTitle(product: Product?) {
         with(binding) {
             if (product != null) {
                 tvTitle.text = product.title
@@ -94,6 +101,7 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
                 tvAvailableStock.text = getStockQuantityString(requireContext(), product.available)
                 btnBrand.text = product.title
                 tvProductDescription.text = product.description
+                tvProductComposition.text = product.ingredients
             }
         }
     }
