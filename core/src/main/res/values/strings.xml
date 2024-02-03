@@ -57,8 +57,6 @@
     <string name="error_message">Произошла непредвиденная ошибка</string>
     <string name="unknown_sorting_option">Выбрана неизвестная опция сортировки</string>
 
-
-
     //formating
     <string name="formatted_price">%1$s %2$s</string>
     <string name="discount_format">-%1$d%%</string>

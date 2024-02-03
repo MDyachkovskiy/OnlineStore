@@ -41,6 +41,10 @@ dependencies {
     //Kotlin
     implementation("androidx.core:core-ktx:1.12.0")
 
+    //Design
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+
     //Hilt
     implementation ("com.google.dagger:hilt-android:2.49")
     kapt("com.google.dagger:hilt-android-compiler:2.49")

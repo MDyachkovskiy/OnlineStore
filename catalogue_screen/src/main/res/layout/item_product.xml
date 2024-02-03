@@ -32,6 +32,7 @@
         </androidx.viewpager2.widget.ViewPager2>
 
         <LinearLayout
+            android:id="@+id/pagination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/background_light_grey"
@@ -73,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_6dp_small"
             android:layout_marginTop="@dimen/margin_2dp_small"
-            android:text="749P"
+            android:text="@string/old_price_mock"
             android:textColor="@color/text_grey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/product_image_carousel" />
@@ -92,7 +93,7 @@
                 style="@style/title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="489 Р"
+                android:text="@string/actual_price_mock"
                 android:textColor="@color/black" />
 
             <androidx.cardview.widget.CardView
@@ -108,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_6dp_small"
                     android:layout_marginVertical="@dimen/margin_3dp_small"
-                    android:text="-35%"
+                    android:text="@string/discount_mock"
                     android:textColor="@color/white" />
 
             </androidx.cardview.widget.CardView>
@@ -124,7 +125,7 @@
             android:layout_marginStart="@dimen/margin_6dp_small"
             android:layout_marginTop="@dimen/margin_2dp_small"
             android:gravity="start"
-            android:text="ESFOLIO"
+            android:text="@string/product_title_mock"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_6dp_small"
             android:layout_marginTop="@dimen/margin_2dp_small"
-            android:text="Лосьон для тела 'ESFOLIO' COENZYM Q10 Увлажняющий 500 мл"
+            android:text="@string/product_subtitle_mock"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

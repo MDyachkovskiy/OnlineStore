@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.test.application.catalogue_screen.databinding.ItemProductBinding
 import com.test.application.core.domain.product.Price
 import com.test.application.core.domain.product.Product
+import com.test.application.core.utils.image_slider.ImageSliderManager
 
 class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
@@ -55,6 +56,17 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
         fun bind(product: Product) {
             setTextData(product)
             setFavouriteCheckBox(product)
+            setImageSlider(product.imageResIds)
+        }
+
+        private fun setImageSlider(imageResIds: List<Int>) {
+            val context = binding.root.context
+            val imageSliderManager = ImageSliderManager(
+                context,
+                binding.productImageCarousel,
+                binding.pagination
+            )
+            imageSliderManager.setupSlider(imageResIds)
         }
 
         private fun setFavouriteCheckBox(product: Product) {
