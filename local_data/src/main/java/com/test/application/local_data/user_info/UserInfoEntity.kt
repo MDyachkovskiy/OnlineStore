@@ -9,5 +9,5 @@ data class UserInfoEntity (
     var name: String,
     var secondName: String,
     var phoneNumber: String,
-    var isLogged: Boolean = false
+    var isLogged: Boolean = true
 )

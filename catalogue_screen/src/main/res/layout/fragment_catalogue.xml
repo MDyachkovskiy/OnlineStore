@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="view.CatalogueFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -48,34 +50,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar_layout" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chip_tag_filters"
+    <HorizontalScrollView
+        android:id="@+id/chip_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp_medium"
+        android:paddingHorizontal="@dimen/margin_16dp_medium"
         android:layout_marginTop="@dimen/margin_16dp_medium"
+        android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sort_spinner"
-        app:singleSelection="true">
+        app:layout_constraintTop_toBottomOf="@+id/sort_spinner">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_all"
-            style="@style/CustomChipFilterStyle"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_tag_filters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/tag_all"
-            app:closeIconEnabled="true" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_face"
-            style="@style/CustomChipFilterStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tag_face" />
+            app:singleSelection="true">
 
-    </com.google.android.material.chip.ChipGroup>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_all"
+                style="@style/CustomChipFilterStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/tag_all"
+                app:closeIconEnabled="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_face"
+                style="@style/CustomChipFilterStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tag_face" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_products_catalogue"
@@ -87,7 +99,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chip_tag_filters"
+        app:layout_constraintTop_toBottomOf="@+id/chip_scroll_view"
         tools:listitem="@layout/item_product" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,7 +33,7 @@ class CatalogueViewModel @Inject constructor(
         observeFavouritesChanges()
     }
 
-    fun getProductsFromRemoteSource() {
+   fun getProductsFromRemoteSource() {
         _stateFlow.value = AppState.Loading
         viewModelCoroutineScope.launch {
             try {

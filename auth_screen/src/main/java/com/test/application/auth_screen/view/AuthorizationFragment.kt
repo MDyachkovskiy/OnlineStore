@@ -1,7 +1,6 @@
-package com.test.application.auth_screen
+package com.test.application.auth_screen.view
 
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,6 +8,10 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.test.application.auth_screen.databinding.FragmentAuthorizationBinding
+import com.test.application.auth_screen.utils.BUNDLE_KEY_NAME
+import com.test.application.auth_screen.utils.BUNDLE_KEY_PHONE_NUMBER
+import com.test.application.auth_screen.utils.BUNDLE_KEY_SECOND_NAME
+import com.test.application.auth_screen.utils.PhoneNumberValidator
 import com.test.application.core.R
 import com.test.application.core.navigation.AuthNavigationListener
 import com.test.application.core.view.BaseFragment
@@ -21,6 +24,7 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
 
     private val viewModel: AuthorizationViewModel by viewModels()
     private var navigationHandler: AuthNavigationListener? = null
+    private val phoneNumberValidator = PhoneNumberValidator()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,11 +38,40 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
         navigationHandler = null
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(BUNDLE_KEY_NAME, binding.etName.text.toString())
+        outState.putString(BUNDLE_KEY_SECOND_NAME, binding.etSecondName.text.toString())
+        outState.putString(BUNDLE_KEY_PHONE_NUMBER, binding.etPhoneNumber.text.toString())
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        restoreData(savedInstanceState)
+        disableHints()
         setNameEditText()
         setPhoneEditText()
         setLoginButton()
+    }
+
+    private fun disableHints() {
+        with(binding){
+            etPhoneNumber.hint = null
+            etName.hint = null
+            etSecondName.hint = null
+        }
+    }
+
+    private fun restoreData(savedInstanceState: Bundle?) {
+        savedInstanceState?.let {
+            val name = it.getString(BUNDLE_KEY_NAME, "")
+            val secondName = it.getString(BUNDLE_KEY_SECOND_NAME, "")
+            val phoneNumber = it.getString(BUNDLE_KEY_PHONE_NUMBER, "")
+
+            binding.etName.setText(name)
+            binding.etSecondName.setText(secondName)
+            binding.etPhoneNumber.setText(phoneNumber)
+        }
     }
 
     private fun setLoginButton() {
@@ -56,27 +89,26 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
                 if (isFormatting) return
 
                 isFormatting = true
 
                 val digits = p0.toString().filter { it.isDigit() }
-                val formatted = buildString {
-                    append("+7 ")
-                    digits.drop(1).forEachIndexed { index, c ->
-                        if (index == 3 || index == 6) append(" ")
-                        if (index == 8 || index == 10) append(" ")
-                        append(c)
-                    }
-                }
-
-                if (p0.toString() != formatted && formatted != lastFormattedText) {
-                    lastFormattedText = formatted
+                if(digits.length > 16) {
+                    val truncatedDigits = digits.substring(0, 16)
+                    val formatted = phoneNumberValidator.format(truncatedDigits)
                     binding.etPhoneNumber.setText(formatted)
-                    binding.etPhoneNumber.setSelection(
-                        formatted.length
-                            .coerceAtMost(binding.etPhoneNumber.text?.length ?: 0)
-                    )
+                    binding.etPhoneNumber.setSelection(formatted.length)
+                } else {
+                    val formatted = phoneNumberValidator.format(digits)
+                    if (p0.toString() != formatted && formatted != lastFormattedText) {
+                        lastFormattedText = formatted
+                        binding.etPhoneNumber.setText(formatted)
+                        binding.etPhoneNumber.setSelection(
+                            formatted.length.coerceAtMost(binding.etPhoneNumber.text?.length ?: 0)
+                        )
+                    }
                 }
                 isFormatting = false
                 updateLoginButtonState()
@@ -87,20 +119,21 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
     }
 
     private fun setNameEditText() {
-        val editTexts = listOf(binding.etName, binding.etSecondName)
-        editTexts.forEach { editText ->
+        val editTexts = listOf(Pair(binding.etName, binding.etLayoutName),
+            Pair(binding.etSecondName, binding.etLayoutSecondName))
+        editTexts.forEach { (editText, textInputLayout) ->
             editText.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     val valid = p0.toString().all { it in 'А'..'я' }
-                    editText.background = if (valid) null else
-                        ColorDrawable(
-                            ContextCompat.getColor(
-                                requireContext(),
-                                R.color.text_light_pink
-                            )
-                        )
+                    if(valid) {
+                        textInputLayout.boxBackgroundColor =
+                            ContextCompat.getColor(requireContext(), R.color.background_light_grey)
+                    } else {
+                        textInputLayout.boxBackgroundColor =
+                            ContextCompat.getColor(requireContext(), R.color.text_light_pink)
+                    }
                     updateLoginButtonState()
                 }
 
@@ -112,7 +145,7 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
     private fun updateLoginButtonState() {
         val nameValid = binding.etName.text.toString().all { it in 'А'..'я' }
         val secondNameValid = binding.etSecondName.text.toString().all { it in 'А'..'я' }
-        val phoneValid = (binding.etPhoneNumber.text?.length ?: 0) >= 16
+        val phoneValid = phoneNumberValidator.isValid(binding.etPhoneNumber.text.toString())
         binding.btnLogin.isEnabled = nameValid && secondNameValid && phoneValid
     }
 

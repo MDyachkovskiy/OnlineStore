@@ -16,7 +16,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.test.application.account_profile_screen.view.AccountProfileFragment
-import com.test.application.auth_screen.AuthorizationFragment
+import com.test.application.auth_screen.view.AuthorizationFragment
 import com.test.application.catalogue_screen.view.CatalogueFragment
 import com.test.application.core.navigation.AccountProfileNavigation
 import com.test.application.core.navigation.AuthNavigationListener

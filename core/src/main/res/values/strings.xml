@@ -21,6 +21,11 @@
     <string name="tag_body">Тело</string>
     <string name="tag_suntan">Загар</string>
     <string name="tag_mask">Маски</string>
+    <string name="tag_eng_all">all</string>
+    <string name="tag_eng_face">face</string>
+    <string name="tag_eng_body">body</string>
+    <string name="tag_eng_suntan">suntan</string>
+    <string name="tag_eng_mask">mask</string>
 
     //product_details
     <string name="details_title">Каталог</string>

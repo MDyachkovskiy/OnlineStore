@@ -1,5 +1,6 @@
-package com.test.application.auth_screen
+package com.test.application.auth_screen.view
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.test.application.core.domain.auth.UserLogin
 import com.test.application.core.repository.AuthDataRepository
@@ -22,6 +23,7 @@ class AuthorizationViewModel @Inject constructor(
 
     fun saveAuthData(name: String, secondName: String, phoneNumber: String) {
         val userInfo = UserLogin(name=name, secondName=secondName, phoneNumber = phoneNumber)
+        Log.d("@@@", "Сохраняю данные $name, $secondName, $phoneNumber")
         viewModelCoroutineScope.launch {
             authDataRepository.saveAuthData(userInfo)
         }

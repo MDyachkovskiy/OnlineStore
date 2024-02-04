@@ -27,7 +27,7 @@
         app:itemIconSize="@dimen/bottom_menu_icon_size"
         app:itemTextAppearanceInactive="@style/menu_item_inactive"
         app:itemTextAppearanceActive="@style/menu_item_active"
-        android:background="@color/override_transparent_color"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

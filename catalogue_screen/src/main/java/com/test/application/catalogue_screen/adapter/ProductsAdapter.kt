@@ -107,7 +107,7 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
         private fun setProductTitle(product: Product) {
             with(binding){
                 tvProductName.text = product.title
-                tvProductDescription.text = product.title
+                tvProductDescription.text = product.subtitle
             }
         }
 

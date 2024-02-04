@@ -4,12 +4,14 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
+import com.test.application.catalogue_screen.R
 import com.test.application.catalogue_screen.adapter.ProductsAdapter
 import com.test.application.catalogue_screen.databinding.FragmentCatalogueBinding
 import com.test.application.catalogue_screen.utils.sorting.SortingManager
@@ -66,6 +68,7 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     }
 
     private fun setSortingSpinner() {
+        setSpinnerView()
         sortingManager = SortingManager(productsAdapter)
         binding.sortSpinner.mySpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
@@ -81,6 +84,15 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
                 }
                 override fun onNothingSelected(p0: AdapterView<*>?) {}
             }
+    }
+
+    private fun setSpinnerView() {
+        val adapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            com.test.application.core.R.array.sorting_options,
+            R.layout.item_spinner
+        )
+        binding.sortSpinner.mySpinner.adapter = adapter
     }
 
     private fun observeFavourites() {
@@ -124,9 +136,14 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     }
 
     private fun initViewModel() {
+        observeViewModelState()
+        checkInitialViewModelState()
+    }
+
+    private fun observeViewModelState() {
         lifecycleScope.launch {
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.stateFlow.collect {appState ->
+            lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.stateFlow.collect { appState ->
                     renderData(appState)
                 }
             }
@@ -135,6 +152,12 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     }
 
     private fun requestData() {
+        viewModel.getProductsFromRemoteSource()
+    }
+
+    private fun checkInitialViewModelState() {
+        val currentState = viewModel.stateFlow.value
+        renderData(currentState)
         viewModel.getProductsFromRemoteSource()
     }
 }

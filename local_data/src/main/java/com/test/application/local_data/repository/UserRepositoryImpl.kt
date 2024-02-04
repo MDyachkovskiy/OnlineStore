@@ -12,6 +12,7 @@ class UserRepositoryImpl @Inject constructor(
     private val userInfoDao: UserInfoDao
 ) : UserRepository {
     override fun isUserLoggedIn(): Flow<Boolean> = flow {
-        emit(userInfoDao.getLoggedInUser() != null)
+        val user = userInfoDao.getLoggedInUser()
+        emit(user != null)
     }.flowOn(Dispatchers.IO)
 }

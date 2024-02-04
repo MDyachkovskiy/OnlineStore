@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="AuthorizationFragment">
+    android:background="@color/white"
+    tools:context=".view.AuthorizationFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="113dp"
-        app:boxBackgroundColor="@color/selector_edit_text_background"
+        app:boxBackgroundColor="@color/background_light_grey"
         android:paddingTop="@dimen/margin_16dp_medium"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
@@ -60,7 +62,7 @@
         style="@style/AuthInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/selector_edit_text_background"
+        app:boxBackgroundColor="@color/background_light_grey"
         android:paddingTop="@dimen/margin_16dp_medium"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
@@ -85,7 +87,7 @@
         style="@style/AuthInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/selector_edit_text_background"
+        app:boxBackgroundColor="@color/background_light_grey"
         android:paddingTop="@dimen/margin_16dp_medium"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
@@ -101,6 +103,7 @@
             android:layout_marginHorizontal="@dimen/margin_16dp_medium"
             android:hint="@string/hint_phone_number"
             android:inputType="phone"
+            android:maxLength="16"
             android:textAppearance="@style/et_placeholder_text" />
 
     </com.google.android.material.textfield.TextInputLayout>
