@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.test.application.core.domain.product.Price
 import com.test.application.core.domain.product.Product
 import com.test.application.core.utils.image_slider.ImageSliderManager
+import com.test.application.favorite_screen.R
 import com.test.application.favorite_screen.databinding.ItemProductBinding
 
 class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.ViewHolder>() {
@@ -71,12 +72,19 @@ class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.ViewHolder>() {
         }
 
         private fun setFavouriteCheckBox(product: Product) {
-            with(binding.cbFavourite) {
-                setOnCheckedChangeListener(null)
-                isChecked = product.isFavourite
-                setOnCheckedChangeListener { _, isChecked ->
-                    favouriteListener?.invoke(product, isChecked)
-                }
+            val favouriteIcon =
+                if (product.isFavourite) R.drawable.ic_favorite_fill else R.drawable.ic_favorite_empty
+            binding.ivFavourite.setImageResource(favouriteIcon)
+
+            binding.ivFavourite.setOnClickListener {
+                val isNowFavourite = !product.isFavourite
+                product.isFavourite = isNowFavourite
+
+                val newIcon =
+                    if (isNowFavourite) R.drawable.ic_favorite_fill else R.drawable.ic_favorite_empty
+                binding.ivFavourite.setImageResource(newIcon)
+
+                favouriteListener?.invoke(product, isNowFavourite)
             }
         }
 
@@ -103,7 +111,7 @@ class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.ViewHolder>() {
         private fun setProductTitle(product: Product) {
             with(binding){
                 tvProductName.text = product.title
-                tvProductDescription.text = product.title
+                tvProductDescription.text = product.subtitle
             }
         }
 

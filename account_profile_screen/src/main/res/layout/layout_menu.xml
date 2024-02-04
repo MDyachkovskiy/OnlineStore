@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:ignore="contentDescription">
 
     <androidx.cardview.widget.CardView
-        style="@style/menu_item"
         android:id="@+id/favorite_block"
+        style="@style/menu_item"
         android:layout_marginTop="@dimen/margin_24dp_large"
         app:cardBackgroundColor="@color/background_light_grey"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -56,11 +57,12 @@
                 app:layout_constraintStart_toEndOf="@id/favorite_icon" />
 
             <ImageButton
+                android:id="@+id/btn_favourite_forward"
                 android:layout_width="@dimen/exit_button_size"
                 android:layout_height="@dimen/exit_button_size"
                 android:layout_marginEnd="@dimen/margin_8dp_small"
-                android:src="@drawable/ic_arrow_forward"
                 android:background="@color/override_transparent_color"
+                android:src="@drawable/ic_arrow_forward"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -73,11 +75,13 @@
         android:id="@+id/store_block"
         style="@style/menu_item"
         app:cardBackgroundColor="@color/background_light_grey"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/favorite_block">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/store_block_constraints"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -93,22 +97,24 @@
                 app:tint="@color/element_pink" />
 
             <TextView
+                android:id="@+id/stores_label"
                 style="@style/title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16dp_medium"
                 android:text="@string/stores_label"
                 android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/store_icon"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
+                android:id="@+id/btn_stores_forward"
                 android:layout_width="@dimen/exit_button_size"
                 android:layout_height="@dimen/exit_button_size"
                 android:layout_marginEnd="@dimen/margin_8dp_small"
-                android:src="@drawable/ic_arrow_forward"
                 android:background="@color/override_transparent_color"
+                android:src="@drawable/ic_arrow_forward"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -121,11 +127,13 @@
         android:id="@+id/feedback_block"
         style="@style/menu_item"
         app:cardBackgroundColor="@color/background_light_grey"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/store_block">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/feedback_block_constraints"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -141,22 +149,24 @@
                 app:tint="@color/element_orange" />
 
             <TextView
+                android:id="@+id/feedback_label"
                 style="@style/title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16dp_medium"
                 android:text="@string/feedback_label"
                 android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/feedback_icon"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
+                android:id="@+id/btn_feedback_forward"
                 android:layout_width="@dimen/exit_button_size"
                 android:layout_height="@dimen/exit_button_size"
                 android:layout_marginEnd="@dimen/margin_8dp_small"
-                android:src="@drawable/ic_arrow_forward"
                 android:background="@color/override_transparent_color"
+                android:src="@drawable/ic_arrow_forward"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -169,11 +179,13 @@
         android:id="@+id/offerta_block"
         style="@style/menu_item"
         app:cardBackgroundColor="@color/background_light_grey"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/feedback_block">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/offerta_block_constraints"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -189,22 +201,24 @@
                 app:tint="@color/text_grey" />
 
             <TextView
+                android:id="@+id/offerta_label"
                 style="@style/title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16dp_medium"
                 android:text="@string/offerta_label"
                 android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/offerta_icon"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
+                android:id="@+id/btn_offerta_forward"
                 android:layout_width="@dimen/exit_button_size"
                 android:layout_height="@dimen/exit_button_size"
                 android:layout_marginEnd="@dimen/margin_8dp_small"
-                android:src="@drawable/ic_arrow_forward"
                 android:background="@color/override_transparent_color"
+                android:src="@drawable/ic_arrow_forward"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -217,11 +231,13 @@
         android:id="@+id/return_block"
         style="@style/menu_item"
         app:cardBackgroundColor="@color/background_light_grey"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/offerta_block">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/return_block_constraints"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -237,27 +253,28 @@
                 app:tint="@color/text_grey" />
 
             <TextView
+                android:id="@+id/return_label"
                 style="@style/title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16dp_medium"
                 android:text="@string/return_label"
                 android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/return_icon"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
+                android:id="@+id/btn_return_forward"
                 android:layout_width="@dimen/exit_button_size"
                 android:layout_height="@dimen/exit_button_size"
                 android:layout_marginEnd="@dimen/margin_8dp_small"
-                android:src="@drawable/ic_arrow_forward"
                 android:background="@color/override_transparent_color"
+                android:src="@drawable/ic_arrow_forward"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

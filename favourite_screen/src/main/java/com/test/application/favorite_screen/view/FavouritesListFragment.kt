@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.test.application.core.domain.product.Product
-import com.test.application.core.navigation.OpenProductDetails
+import com.test.application.core.navigation.OpenProductDetailsFromFavourites
 import com.test.application.core.utils.AppState
 import com.test.application.core.utils.PRODUCT_BUNDLE_KEY
 import com.test.application.core.view.BaseFragmentWithAppState
@@ -26,11 +26,11 @@ class FavouritesListFragment : BaseFragmentWithAppState<AppState, List<Product>,
 
     private val viewModel: FavouritesListViewModel by viewModels()
     private val productsAdapter: FavouritesAdapter by lazy { FavouritesAdapter() }
-    private var openProductDetailsListener: OpenProductDetails? = null
+    private var openProductDetailsListener: OpenProductDetailsFromFavourites? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OpenProductDetails) {
+        if (context is OpenProductDetailsFromFavourites) {
             openProductDetailsListener = context
         }
     }
@@ -90,7 +90,7 @@ class FavouritesListFragment : BaseFragmentWithAppState<AppState, List<Product>,
     private fun handleRootClickListener() {
         productsAdapter.rootListener = { id ->
             val bundle = bundleOf(PRODUCT_BUNDLE_KEY to id)
-            openProductDetailsListener?.openProductDetails(bundle)
+            openProductDetailsListener?.openProductDetailsFromFavourites(bundle)
         }
     }
 }

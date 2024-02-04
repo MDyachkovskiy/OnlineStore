@@ -28,9 +28,6 @@
         <argument
             android:name="product_id"
             app:argType="string"/>
-        <action
-            android:id="@+id/action_fromDetails_to_Catalogue"
-            app:destination="@+id/nav_catalogue"/>
     </fragment>
 
     <fragment
@@ -48,8 +45,8 @@
         android:name="com.test.application.favorite_screen.view.FavouritesFragment"
         app:layout="@layout/fragment_favourites">
         <action
-            android:id="@+id/action_fromFavourites_to_Profile"
-            app:destination="@+id/nav_profile"/>
+            android:id="@+id/action_fromFavourites_to_Details"
+            app:destination="@+id/product_details"/>
     </fragment>
 
 </navigation>

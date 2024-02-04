@@ -36,8 +36,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="113dp"
-        app:boxBackgroundColor="@color/background_light_grey"
         android:paddingTop="@dimen/margin_16dp_medium"
+        android:hint="@string/hint_name"
+        app:boxBackgroundColor="@color/background_light_grey"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
         app:endIconTint="@color/element_dark_grey"
@@ -49,9 +50,8 @@
             android:id="@+id/et_name"
             style="@style/placeholder_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/margin_16dp_medium"
-            android:hint="@string/hint_name"
             android:inputType="textPersonName|textCapSentences"
             android:textAppearance="@style/et_placeholder_text" />
 
@@ -62,8 +62,8 @@
         style="@style/AuthInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/background_light_grey"
         android:paddingTop="@dimen/margin_16dp_medium"
+        app:boxBackgroundColor="@color/background_light_grey"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
         app:endIconTint="@color/element_dark_grey"
@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_layout_name">
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_second_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,8 +87,8 @@
         style="@style/AuthInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/background_light_grey"
         android:paddingTop="@dimen/margin_16dp_medium"
+        app:boxBackgroundColor="@color/background_light_grey"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
         app:endIconTint="@color/element_dark_grey"
@@ -96,7 +96,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_layout_second_name">
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_phone_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

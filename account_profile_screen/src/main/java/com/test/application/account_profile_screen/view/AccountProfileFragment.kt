@@ -97,7 +97,7 @@ class AccountProfileFragment : BaseFragmentWithAppState<AppState, UserLogin, Fra
     }
 
     private fun setupButtons() {
-        binding.btnLogout.setOnClickListener {
+        binding.btnLogoutSecond.setOnClickListener {
             viewModel.logoutUser()
             navigationHandler?.navigateToRegistrationScreen()
         }

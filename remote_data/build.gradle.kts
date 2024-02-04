@@ -38,17 +38,17 @@ dependencies {
     implementation(project(":core"))
 
     //Kotlin
-    implementation("androidx.core:core-ktx:1.12.0")
+    implementation(Kotlin.core)
 
     //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(Retrofit.main)
+    implementation(Retrofit.gson_convertor)
 
     //Dagger
-    implementation ("com.google.dagger:dagger:2.49")
-    kapt("com.google.dagger:dagger-compiler:2.49")
+    implementation(Dagger.main)
+    kapt(Dagger.compiler)
 
     //Hilt
-    implementation ("com.google.dagger:hilt-android:2.49")
-    kapt("com.google.dagger:hilt-android-compiler:2.49")
+    implementation (Hilt.main)
+    kapt(Hilt.compiler)
 }

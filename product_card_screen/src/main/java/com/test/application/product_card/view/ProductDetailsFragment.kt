@@ -3,6 +3,7 @@ package com.test.application.product_card.view
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.test.application.catalogue_screen.R
 import com.test.application.catalogue_screen.view.CatalogueViewModel
 import com.test.application.core.domain.product.Price
@@ -36,6 +37,13 @@ class ProductDetailsFragment : BaseFragment<FragmentProductDetailBinding>(
         initViewModel()
         setupToggleButtons()
         setupRatingBlock()
+        setupBackButton()
+    }
+
+    private fun setupBackButton() {
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     private fun setupRatingBlock() {

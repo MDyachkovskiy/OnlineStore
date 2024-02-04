@@ -43,14 +43,18 @@ dependencies {
     implementation(project(":catalogue_screen"))
 
     //Kotlin
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation(Kotlin.core)
+    implementation(AndroidX.fragment_ktx)
 
     //Design
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
+    implementation(AndroidX.appcompat)
+    implementation(Design.material)
+
+    //Navigation
+    implementation(Navigation.fragment_ktx)
+    implementation(Navigation.ui_ktx)
 
     //Hilt
-    implementation ("com.google.dagger:hilt-android:2.49")
-    kapt("com.google.dagger:hilt-android-compiler:2.49")
+    implementation (Hilt.main)
+    kapt(Hilt.compiler)
 }

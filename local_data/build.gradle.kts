@@ -38,18 +38,18 @@ dependencies {
     implementation(project(":core"))
 
     //Kotlin
-    implementation("androidx.core:core-ktx:1.12.0")
+    implementation(Kotlin.core)
 
     //Room
-    implementation ("androidx.room:room-runtime:2.6.1")
-    implementation ("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    implementation (Room.runtime)
+    implementation (Room.ktx)
+    kapt(Room.compiler)
 
     //Dagger
-    implementation ("com.google.dagger:dagger:2.49")
-    kapt("com.google.dagger:dagger-compiler:2.49")
+    implementation(Dagger.main)
+    kapt(Dagger.compiler)
 
     //Hilt
-    implementation ("com.google.dagger:hilt-android:2.49")
-    kapt("com.google.dagger:hilt-android-compiler:2.49")
+    implementation (Hilt.main)
+    kapt(Hilt.compiler)
 }

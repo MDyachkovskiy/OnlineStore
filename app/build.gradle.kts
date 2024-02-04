@@ -51,26 +51,24 @@ dependencies {
     implementation(project(":remote_data"))
 
     //Kotlin
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
-
-    //AndroidX
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation(Kotlin.core)
+    implementation(AndroidX.fragment_ktx)
 
     //Design
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(AndroidX.appcompat)
+    implementation(Design.material)
+    implementation(Design.constraint_layout)
 
     //Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
+    implementation(Navigation.fragment_ktx)
+    implementation(Navigation.ui_ktx)
 
     //Hilt
-    implementation ("com.google.dagger:hilt-android:2.49")
-    kapt("com.google.dagger:hilt-android-compiler:2.49")
+    implementation (Hilt.main)
+    kapt(Hilt.compiler)
 
     //Dagger
-    implementation("com.google.dagger:dagger:2.49")
-    implementation("com.google.dagger:dagger-android-support:2.49")
-    kapt("com.google.dagger:dagger-compiler:2.49")
+    implementation(Dagger.main)
+    implementation(Dagger.android_support)
+    kapt(Dagger.compiler)
 }
