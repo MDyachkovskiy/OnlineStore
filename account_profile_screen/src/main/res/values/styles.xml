@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="menu_item" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/profile_info_block_height</item>
+        <item name="android:elevation">0dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:height">@dimen/profile_info_block_height</item>
+    </style>
+
+</resources>

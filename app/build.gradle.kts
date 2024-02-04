@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    kotlin("kapt")
 }
 
 android {
@@ -26,6 +28,9 @@ android {
             )
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -36,12 +41,34 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":account_profile_screen"))
+    implementation(project(":auth_screen"))
+    implementation(project(":catalogue_screen"))
+    implementation(project(":favourite_screen"))
+    implementation(project(":product_card_screen"))
+    implementation(project(":local_data"))
+    implementation(project(":remote_data"))
 
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    //Kotlin
+    implementation(Kotlin.core)
+    implementation(AndroidX.fragment_ktx)
+
+    //Design
+    implementation(AndroidX.appcompat)
+    implementation(Design.material)
+    implementation(Design.constraint_layout)
+
+    //Navigation
+    implementation(Navigation.fragment_ktx)
+    implementation(Navigation.ui_ktx)
+
+    //Hilt
+    implementation (Hilt.main)
+    kapt(Hilt.compiler)
+
+    //Dagger
+    implementation(Dagger.main)
+    implementation(Dagger.android_support)
+    kapt(Dagger.compiler)
 }

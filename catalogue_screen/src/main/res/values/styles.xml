@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomSpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/spinner_background</item>
+    </style>
+
+    <style name="CustomChipFilterStyle" parent="Widget.Material3.Chip.Suggestion">
+        <item name="chipBackgroundColor">@drawable/chip_background_selector</item>
+        <item name="android:textColor">@drawable/chip_text_color_selector</item>
+        <item name="android:height">28dp</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="closeIconTint">@color/white</item>
+        <item name="shapeAppearanceOverlay">@style/RoundedChipShape</item>
+        <item name="android:textAppearance">@style/title_4</item>
+    </style>
+
+    <style name="RoundedChipShape">
+        <item name="cornerSize">50dp</item>
+    </style>
+</resources>

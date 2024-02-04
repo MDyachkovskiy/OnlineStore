@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_catalogue">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.test.application.onlinestore.view.HomeFragment"
+        app:layout="@layout/fragment_home"
+        android:label="@string/menu_home" />
+
+    <fragment
+        android:id="@+id/nav_catalogue"
+        android:name="com.test.application.catalogue_screen.view.CatalogueFragment"
+        android:label="@string/menu_catalogue"
+        app:layout="@layout/fragment_catalogue">
+        <action
+            android:id="@+id/action_fromCatalogue_to_productDetails"
+            app:destination="@+id/product_details"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/product_details"
+        android:name="com.test.application.product_card.view.ProductDetailsFragment"
+        app:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="product_id"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.test.application.account_profile_screen.view.AccountProfileFragment"
+        tools:layout="@layout/fragment_account_profile"
+        android:label="@string/menu_profile" >
+        <action
+            android:id="@+id/action_fromProfile_to_Favourites"
+            app:destination="@+id/favourites"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/favourites"
+        android:name="com.test.application.favorite_screen.view.FavouritesFragment"
+        app:layout="@layout/fragment_favourites">
+        <action
+            android:id="@+id/action_fromFavourites_to_Details"
+            app:destination="@+id/product_details"/>
+    </fragment>
+
+</navigation>

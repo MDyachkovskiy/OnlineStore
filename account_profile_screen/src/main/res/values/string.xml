@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="user_name_mock">Марина Иванова</string>
+    <string name="user_phone_mock">+7 993 877 44 02</string>
+    <string name="favorites_count_mock">1 товар</string>
+
+    //formating
+    <string name="user_name">%1$s %2$s</string>
+    <string name="formated_favourite_item">%d %s</string>
+    <string name="favourites_one_item">товар</string>
+    <string name="favourites_few_items">товара</string>
+    <string name="favourites_many_items">товаров</string>
+
+</resources>

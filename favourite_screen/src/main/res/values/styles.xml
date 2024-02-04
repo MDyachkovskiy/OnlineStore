@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/title_4</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:lineHeight">@dimen/title_4_height</item>
+    </style>
+
+    <style name="TabLayoutSelectedTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/title_4</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:lineHeight">@dimen/title_4_height</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+</resources>

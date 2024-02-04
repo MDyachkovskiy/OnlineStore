@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="old_price_mock">749 P</string>
+    <string name="actual_price_mock">489 Р</string>
+    <string name="discount_mock">-35%</string>
+    <string name="product_title_mock">ESFOLIO</string>
+    <string name="product_subtitle_mock">Лосьон для тела \'ESFOLIO\' COENZYM Q10 Увлажняющий 500 мл</string>
+
+</resources>
