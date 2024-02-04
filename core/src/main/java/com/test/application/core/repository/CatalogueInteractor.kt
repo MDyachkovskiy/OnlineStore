@@ -8,4 +8,6 @@ interface CatalogueInteractor {
     suspend fun saveFavoriteItem(product: Product)
     suspend fun deleteFavoriteItem(id: String)
     suspend fun checkFavoriteItems(ids: List<String>) : Flow<Map<String, Boolean>>
+
+    suspend fun getFavouriteProductIds() : Flow<List<String>>
 }

@@ -42,6 +42,8 @@
 
     //favourites
     <string name="favourites_title">Избранное</string>
+    <string name="tab_items">Товары</string>
+    <string name="tab_brands">Бренды</string>
 
     //bottom_menu
     <string name="menu_home">Главная</string>

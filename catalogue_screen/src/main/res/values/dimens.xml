@@ -7,4 +7,5 @@
     <dimen name="catalogue_item_height">290dp</dimen>
     <dimen name="rating_icon_size">16dp</dimen>
     <dimen name="btn_add_size">32dp</dimen>
+    <dimen name="sort_icon_size">24dp</dimen>
 </resources>

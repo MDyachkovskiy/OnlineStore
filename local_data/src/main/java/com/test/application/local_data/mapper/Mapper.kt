@@ -9,6 +9,7 @@ import com.test.application.local_data.favourite_item.FeedbackEntity
 import com.test.application.local_data.favourite_item.InfoEntity
 import com.test.application.local_data.favourite_item.PriceEntity
 import com.test.application.local_data.favourite_item.ProductEntity
+import com.test.application.local_data.favourite_item.ProductWithDetails
 import com.test.application.local_data.user_info.UserInfoEntity
 
 fun UserLogin.toEntity(): UserInfoEntity {
@@ -65,5 +66,29 @@ fun Price.toEntity(productId: String): PriceEntity {
         price = price,
         priceWithDiscount = priceWithDiscount,
         unit = unit
+    )
+}
+
+fun ProductWithDetails.toDomain(): Product {
+    return Product(
+        available = this.product.available,
+        description = this.product.description,
+        feedback = Feedback(
+            count = this.feedback?.count ?: 0,
+            rating = this.feedback?.rating ?: 0.0
+        ),
+        id = this.product.id,
+        info = this.infos.map { Info(it.title, it.value) },
+        ingredients = this.product.ingredients,
+        price = Price(
+            discount = this.price.discount,
+            price = this.price.price,
+            priceWithDiscount = this.price.priceWithDiscount,
+            unit = this.price.unit
+        ),
+        subtitle = this.product.subtitle,
+        title = this.product.title,
+        isFavourite = this.product.isFavourite,
+        imageResIds = this.product.imageResIds
     )
 }

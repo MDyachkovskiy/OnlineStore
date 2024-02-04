@@ -29,6 +29,10 @@ class CatalogueViewModel @Inject constructor(
     private val _isFavourite = MutableStateFlow<Map<String, Boolean>>(emptyMap())
     val isFavourite: StateFlow<Map<String, Boolean>> get() = _isFavourite
 
+    init {
+        observeFavouritesChanges()
+    }
+
     fun getProductsFromRemoteSource() {
         _stateFlow.value = AppState.Loading
         viewModelCoroutineScope.launch {
@@ -59,6 +63,15 @@ class CatalogueViewModel @Inject constructor(
         }
         productsData.postValue(productsWithImages)
         _stateFlow.value = AppState.Success(productsWithImages)
+    }
+
+    private fun observeFavouritesChanges() {
+        viewModelCoroutineScope.launch {
+            interactor.getFavouriteProductIds().collect { favouriteIds ->
+                val favouritesMap = favouriteIds.associateWith { true }
+                _isFavourite.value = favouritesMap
+            }
+        }
     }
 
     fun saveFavoriteItem (product: Product) {

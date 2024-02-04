@@ -8,9 +8,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class AccountProfileViewModel(
+class AccountProfileViewModel @Inject constructor(
     private val accountProfileRepository: AccountProfileRepository
 ) : BaseViewModel<AppState>() {
 

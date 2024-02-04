@@ -33,4 +33,11 @@ interface ProductDao {
 
     @Query("SELECT COUNT(*) FROM products WHERE isFavourite = 1")
     suspend fun countFavorites(): Int
+
+    @Query("SELECT id FROM products WHERE isFavourite = 1")
+    suspend fun getFavouriteProductIds(): List<String>
+
+    @Transaction
+    @Query("SELECT * FROM products WHERE isFavourite = 1")
+    fun getFavouriteProductsWithDetails(): Flow<List<ProductWithDetails>>
 }

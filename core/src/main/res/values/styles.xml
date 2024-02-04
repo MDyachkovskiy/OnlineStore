@@ -10,7 +10,6 @@
     <style name="title_1">
         <item name="android:textSize">@dimen/title_1</item>
         <item name="fontFamily">@font/sf_pro_display_medium</item>
-        <item name="android:textColor">@color/black</item>
         <item name="android:lineHeight">@dimen/title_1_height</item>
     </style>
 
@@ -29,7 +28,6 @@
     <style name="title_4">
         <item name="android:textSize">@dimen/title_4</item>
         <item name="fontFamily">@font/sf_pro_display_regular</item>
-        <item name="android:textColor">@color/black</item>
         <item name="android:lineHeight">@dimen/title_4_height</item>
     </style>
 

@@ -13,6 +13,7 @@
         android:layout_height="match_parent">
 
         <CheckBox
+            android:id="@+id/cb_favourite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_6dp_small"
@@ -31,6 +32,7 @@
         </androidx.viewpager2.widget.ViewPager2>
 
         <LinearLayout
+            android:id="@+id/pagination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/background_light_grey"
@@ -66,7 +68,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/old_price"
+            android:id="@+id/tv_old_price"
             style="@style/element_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,9 +86,10 @@
             android:layout_marginStart="@dimen/margin_6dp_small"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/old_price">
+            app:layout_constraintTop_toBottomOf="@+id/tv_old_price">
 
             <TextView
+                android:id="@+id/tv_price_with_discount"
                 style="@style/title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,6 +103,7 @@
                 android:layout_marginStart="8dp">
 
                 <TextView
+                    android:id="@+id/tv_discount"
                     style="@style/element_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,7 +118,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/product_name"
+            android:id="@+id/tv_product_name"
             style="@style/title_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -128,7 +132,7 @@
             app:layout_constraintTop_toBottomOf="@id/actual_price_block" />
 
         <TextView
-            android:id="@+id/product_description"
+            android:id="@+id/tv_product_description"
             style="@style/title_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -138,7 +142,7 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/product_name" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name" />
 
 
         <LinearLayout
@@ -148,7 +152,7 @@
             android:layout_margin="@dimen/margin_4dp_small"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/product_description">
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_description">
 
             <ImageView
                 android:layout_width="@dimen/rating_icon_size"

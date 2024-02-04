@@ -5,4 +5,7 @@
     <dimen name="catalogue_image_height">170dp</dimen>
     <dimen name="rating_icon_size">16dp</dimen>
     <dimen name="btn_add_size">32dp</dimen>
+
+    <dimen name="tab_layout_height">42dp</dimen>
+
 </resources>

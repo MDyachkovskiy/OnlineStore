@@ -29,4 +29,8 @@ class CatalogueInteractorImpl @Inject constructor(
     override suspend fun checkFavoriteItems(ids: List<String>): Flow<Map<String, Boolean>> {
         return favouritesRepository.checkFavoriteItems(ids)
     }
+
+    override suspend fun getFavouriteProductIds(): Flow<List<String>> {
+        return favouritesRepository.getFavouriteProductIds()
+    }
 }

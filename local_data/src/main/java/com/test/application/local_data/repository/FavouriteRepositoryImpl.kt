@@ -3,8 +3,12 @@ package com.test.application.local_data.repository
 import com.test.application.core.domain.product.Product
 import com.test.application.core.repository.FavouritesRepository
 import com.test.application.local_data.favourite_item.ProductDao
+import com.test.application.local_data.mapper.toDomain
 import com.test.application.local_data.mapper.toEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -30,6 +34,17 @@ class FavouriteRepositoryImpl @Inject constructor(
     override suspend fun checkFavoriteItems(ids: List<String>): Flow<Map<String, Boolean>> {
         return favouriteDao.getFavoriteProductIds(ids).map { favoriteIds ->
             ids.associateWith { favoriteIds.contains(it) }
+        }
+    }
+
+    override suspend fun getFavouriteProductIds(): Flow<List<String>> {
+        return flow {
+            emit(favouriteDao.getFavouriteProductIds())
+        }.flowOn(Dispatchers.IO)
+    }
+    override suspend fun getFavouriteProducts(): Flow<List<Product>> {
+        return favouriteDao.getFavouriteProductsWithDetails().map { productsWithDetails ->
+            productsWithDetails.map { it.toDomain() }
         }
     }
 }

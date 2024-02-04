@@ -1,5 +1,6 @@
 package com.test.application.catalogue_screen.view
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -32,6 +33,19 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     private lateinit var sortingManager: SortingManager
     private lateinit var tagsManager: TagsManager
     private var originalProductsList: List<Product> = listOf()
+    private var openProductDetailsListener: OpenProductDetails? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OpenProductDetails) {
+            openProductDetailsListener = context
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        openProductDetailsListener = null
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -95,7 +109,7 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     private fun handleRootClickListener() {
         productsAdapter.rootListener = { id ->
             val bundle = bundleOf(PRODUCT_BUNDLE_KEY to id)
-            (activity as OpenProductDetails).openProductDetails(bundle)
+            openProductDetailsListener?.openProductDetails(bundle)
         }
     }
 

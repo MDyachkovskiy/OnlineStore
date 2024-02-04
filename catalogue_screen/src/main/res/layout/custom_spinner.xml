@@ -8,8 +8,8 @@
     tools:ignore="contentDescription">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/sort_icon_size"
+        android:layout_height="@dimen/sort_icon_size"
         android:src="@drawable/ic_spinner" />
 
     <Spinner
