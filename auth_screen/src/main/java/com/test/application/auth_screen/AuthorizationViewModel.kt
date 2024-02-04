@@ -17,7 +17,7 @@ class AuthorizationViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val viewModelCoroutineScope = CoroutineScope(
-        Dispatchers.Main + SupervisorJob()
+        Dispatchers.IO + SupervisorJob()
     )
 
     fun saveAuthData(name: String, secondName: String, phoneNumber: String) {

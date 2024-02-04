@@ -42,6 +42,12 @@
         <item name="fontFamily">@font/sf_pro_display_regular</item>
     </style>
 
+    <style name="et_placeholder_text">
+        <item name="android:textSize">@dimen/placeholder_text</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
     <style name="button_text_1">
         <item name="android:textSize">@dimen/button_text_1</item>
         <item name="fontFamily">@font/sf_pro_display_medium</item>
@@ -96,7 +102,6 @@
         <item name="boxStrokeWidthFocused">0dp</item>
         <item name="boxStrokeWidth">0dp</item>
         <item name="boxStrokeColor">@color/override_transparent_color</item>
-        <item name="boxBackgroundColor">@color/background_light_grey</item>
         <item name="hintTextColor">@color/text_grey</item>
         <item name="backgroundTint">@android:color/transparent</item>
     </style>

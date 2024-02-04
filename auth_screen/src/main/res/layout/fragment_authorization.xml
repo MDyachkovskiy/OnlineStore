@@ -34,7 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="113dp"
+        app:boxBackgroundColor="@color/selector_edit_text_background"
         android:paddingTop="@dimen/margin_16dp_medium"
+        app:endIconDrawable="@drawable/ic_clear"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/element_dark_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
@@ -46,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_16dp_medium"
             android:hint="@string/hint_name"
-            android:inputType="textPersonName|textCapSentences" />
+            android:inputType="textPersonName|textCapSentences"
+            android:textAppearance="@style/et_placeholder_text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,7 +60,11 @@
         style="@style/AuthInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/selector_edit_text_background"
         android:paddingTop="@dimen/margin_16dp_medium"
+        app:endIconDrawable="@drawable/ic_clear"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/element_dark_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_layout_name">
@@ -66,7 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_16dp_medium"
             android:hint="@string/hint_second_name"
-            android:inputType="textPersonName|textCapSentences" />
+            android:inputType="textPersonName|textCapSentences"
+            android:textAppearance="@style/et_placeholder_text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,8 +85,11 @@
         style="@style/AuthInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/selector_edit_text_background"
         android:paddingTop="@dimen/margin_16dp_medium"
-
+        app:endIconDrawable="@drawable/ic_clear"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/element_dark_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_layout_second_name">
@@ -87,7 +100,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_16dp_medium"
             android:hint="@string/hint_phone_number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textAppearance="@style/et_placeholder_text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +109,7 @@
         android:id="@+id/btn_login"
         style="@style/LoginButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/login_btn_height"
         android:layout_marginHorizontal="@dimen/margin_16dp_medium"
         android:layout_marginTop="@dimen/margin_32dp_large"
         android:backgroundTint="@color/selector_login_btn"

@@ -19,6 +19,7 @@ import com.test.application.account_profile_screen.view.AccountProfileFragment
 import com.test.application.auth_screen.AuthorizationFragment
 import com.test.application.catalogue_screen.view.CatalogueFragment
 import com.test.application.core.navigation.AccountProfileNavigation
+import com.test.application.core.navigation.AuthNavigationListener
 import com.test.application.core.navigation.OpenProductDetails
 import com.test.application.onlinestore.R
 import com.test.application.onlinestore.databinding.ActivityMainBinding
@@ -26,7 +27,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), OpenProductDetails, AccountProfileNavigation {
+class MainActivity : AppCompatActivity(), OpenProductDetails, AccountProfileNavigation, AuthNavigationListener {
 
     private lateinit var binding : ActivityMainBinding
 
@@ -135,5 +136,9 @@ class MainActivity : AppCompatActivity(), OpenProductDetails, AccountProfileNavi
 
     override fun navigateToFavouriteScreen() {
         navController.navigate(R.id.action_fromProfile_to_Favourites)
+    }
+
+    override fun onAuthSuccess() {
+        showMainContent()
     }
 }
