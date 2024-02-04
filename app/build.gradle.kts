@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
     kotlin("kapt")
 }
 
@@ -46,6 +47,8 @@ dependencies {
     implementation(project(":catalogue_screen"))
     implementation(project(":favourite_screen"))
     implementation(project(":product_card_screen"))
+    implementation(project(":local_data"))
+    implementation(project(":remote_data"))
 
     //Kotlin
     implementation("androidx.core:core-ktx:1.12.0")
@@ -65,4 +68,9 @@ dependencies {
     //Hilt
     implementation ("com.google.dagger:hilt-android:2.49")
     kapt("com.google.dagger:hilt-android-compiler:2.49")
+
+    //Dagger
+    implementation("com.google.dagger:dagger:2.49")
+    implementation("com.google.dagger:dagger-android-support:2.49")
+    kapt("com.google.dagger:dagger-compiler:2.49")
 }

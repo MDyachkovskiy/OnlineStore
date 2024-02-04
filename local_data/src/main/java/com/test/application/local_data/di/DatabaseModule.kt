@@ -3,6 +3,7 @@ package com.test.application.local_data.di
 import android.content.Context
 import androidx.room.Room
 import com.test.application.local_data.database.LocalDatabase
+import com.test.application.local_data.favourite_item.ProductDao
 import com.test.application.local_data.user_info.UserInfoDao
 import dagger.Module
 import dagger.Provides
@@ -27,5 +28,10 @@ class DatabaseModule {
     @Provides
     fun provideUserInfo(database: LocalDatabase): UserInfoDao {
         return database.userInfoDao()
+    }
+
+    @Provides
+    fun provideProductDao(database: LocalDatabase): ProductDao {
+        return database.productDao()
     }
 }

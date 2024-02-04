@@ -15,13 +15,17 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.test.application.account_profile_screen.view.AccountProfileFragment
 import com.test.application.auth_screen.AuthorizationFragment
+import com.test.application.catalogue_screen.view.CatalogueFragment
 import com.test.application.core.navigation.AccountProfileNavigation
 import com.test.application.core.navigation.OpenProductDetails
 import com.test.application.onlinestore.R
 import com.test.application.onlinestore.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), OpenProductDetails, AccountProfileNavigation {
 
     private lateinit var binding : ActivityMainBinding
@@ -47,7 +51,15 @@ class MainActivity : AppCompatActivity(), OpenProductDetails, AccountProfileNavi
                     HomeFragment()
                     true
                 }
-                R.id.nav_home, R.id.nav_catalogue, R.id.nav_cart, R.id.nav_action, R.id.nav_profile -> {
+                R.id.nav_catalogue -> {
+                    CatalogueFragment()
+                    true
+                }
+                R.id.nav_profile -> {
+                    AccountProfileFragment()
+                    true
+                }
+                R.id.nav_home, R.id.nav_cart, R.id.nav_action-> {
                     false
                 }
                 else -> false

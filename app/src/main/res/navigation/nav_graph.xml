@@ -34,14 +34,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_cart"
-        android:label="@string/menu_cart" />
-
-    <fragment
-        android:id="@+id/nav_action"
-        android:label="@string/menu_action" />
-
-    <fragment
         android:id="@+id/nav_profile"
         android:name="com.test.application.account_profile_screen.view.AccountProfileFragment"
         tools:layout="@layout/fragment_account_profile"
