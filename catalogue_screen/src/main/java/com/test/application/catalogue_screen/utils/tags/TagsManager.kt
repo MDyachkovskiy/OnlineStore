@@ -25,48 +25,83 @@ class TagsManager(
                 context.getString(com.test.application.core.R.string.tag_eng_mask)
     )
 
+    private var selectedChipId: Int? = null
+
     fun setupTags(tags: Array<String>) {
         chipGroup.removeAllViews()
-        val allTagText = context.getString(com.test.application.core.R.string.tag_all)
 
         tags.forEach { tag ->
-            val chip = createChip(tag, tag == allTagText)
+            val chip = createChip(tag)
             setupChipListener(chip, tagMapping[tag] ?: tag)
             chipGroup.addView(chip)
         }
+        selectAllTagIfNoneSelected()
     }
 
-    private fun createChip(tag: String, isSelected: Boolean): Chip {
+    private fun createChip(tag: String): Chip {
         return (LayoutInflater.from(context)
             .inflate(R.layout.custom_chip, chipGroup, false) as Chip).apply {
             text = tag
             isCheckable = true
             isCheckedIconVisible = false
-            isChecked = isSelected
-            isCloseIconVisible = isSelected
+            isCloseIconVisible = false
+
+            setOnCloseIconClickListener {
+                isSelected = false
+                selectedChipId = null
+                onTagSelected(null)
+                selectAllTag()
+                updateCloseIconVisibility()
+            }
         }
     }
 
     private fun setupChipListener(chip: Chip, tagId: String) {
-        chip.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
+        chip.setOnClickListener {
+            if (selectedChipId == chip.id) {
+                selectedChipId = null
+                chip.isChecked = false
+                onTagSelected(null)
+                selectAllTag()
+            } else {
+                selectedChipId = chip.id
                 onTagSelected(tagId)
-                updateCloseIconVisibility(chip)
+            }
+            updateCloseIconVisibility()
+        }
+    }
+
+    private fun updateCloseIconVisibility() {
+        chipGroup.children.forEach { child ->
+            (child as? Chip)?.let { chip ->
+                chip.isCloseIconVisible = chip.id == selectedChipId
             }
         }
     }
 
-    private fun updateCloseIconVisibility(selectedChip: Chip) {
+    private fun selectAllTag() {
         chipGroup.children.forEach { child ->
             (child as? Chip)?.let {
-                if (it != selectedChip) it.isCloseIconVisible = false
+                if (it.text == context.getString(com.test.application.core.R.string.tag_all)) {
+                    it.isChecked = true
+                    selectedChipId = it.id
+                    onTagSelected(tagMapping[context.getString(com.test.application.core.R.string.tag_all)])
+                    updateCloseIconVisibility()
+                }
             }
+        }
+    }
+
+    private fun selectAllTagIfNoneSelected() {
+        if (selectedChipId == null) {
+            selectAllTag()
         }
     }
 
     fun filterProductsByTag(products: List<Product>, selectedTag: String?): List<Product> {
         return if (selectedTag.isNullOrEmpty() ||
-            selectedTag == context.getString(com.test.application.core.R.string.tag_all)) {
+            selectedTag == context.getString(com.test.application.core.R.string.tag_all)
+        ) {
             products
         } else {
             products.filter { it.tags.contains(selectedTag) }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/catalogue_item_width"
-    android:layout_height="wrap_content"
+    android:layout_height="330dp"
     app:cardCornerRadius="8dp"
     android:layout_margin="7dp"
     tools:ignore="contentDescription">
@@ -11,15 +11,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <CheckBox
-            android:id="@+id/cb_favourite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_6dp_small"
-            android:button="@drawable/selector_favorite"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/product_image_carousel"
@@ -30,6 +21,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </androidx.viewpager2.widget.ViewPager2>
+
+        <ImageView
+            android:id="@+id/iv_favourite"
+            android:layout_width="@dimen/favourite_icon_size"
+            android:layout_height="@dimen/favourite_icon_size"
+            android:layout_margin="@dimen/margin_6dp_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/pagination"
@@ -193,8 +192,7 @@
             android:layout_width="@dimen/btn_add_size"
             android:layout_height="@dimen/btn_add_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rating_block"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

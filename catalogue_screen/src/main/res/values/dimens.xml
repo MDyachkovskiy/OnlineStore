@@ -8,4 +8,5 @@
     <dimen name="rating_icon_size">16dp</dimen>
     <dimen name="btn_add_size">32dp</dimen>
     <dimen name="sort_icon_size">24dp</dimen>
+    <dimen name="favourite_icon_size">24dp</dimen>
 </resources>

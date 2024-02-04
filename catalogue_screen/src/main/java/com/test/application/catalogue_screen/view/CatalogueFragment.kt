@@ -116,6 +116,15 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
         binding.rvProductsCatalogue.layoutManager = GridLayoutManager(requireContext(), 2)
         handleFavouritesCheck()
         handleRootClickListener()
+        handleScrollToTop()
+    }
+
+    private fun handleScrollToTop() {
+        productsAdapter.scrollToTopListener = object : ProductsAdapter.ScrollToTopListener {
+            override fun onScrollToTop() {
+                binding.rvProductsCatalogue.scrollToPosition(0)
+            }
+        }
     }
 
     private fun handleRootClickListener() {

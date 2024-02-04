@@ -11,4 +11,9 @@
 
     <dimen name="add_to_cart_btn_height">50dp</dimen>
 
+    <dimen name="full_star_size">16dp</dimen>
+    <dimen name="full_star_height">20dp</dimen>
+    <dimen name="empty_star_size">13dp</dimen>
+    <dimen name="empty_star_height">12dp</dimen>
+
 </resources>

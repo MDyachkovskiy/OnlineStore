@@ -1,58 +1,54 @@
 package com.test.application.product_card.utils
 
 import android.text.TextUtils
-import android.view.View
-import android.view.ViewTreeObserver
+import android.transition.TransitionManager
+import android.view.ViewGroup
 import android.widget.TextView
 
 class ToggleTextVisibilityHelper(
     private val toggleButton: TextView,
-    private val contentView: TextView
+    private val contentView: TextView,
+    private val container: ViewGroup
 ) {
     private var isExpanded = false
 
     init {
+        contentView.post {
+            if (contentView.lineCount > 2) {
+                toggleButton.visibility = TextView.VISIBLE
+                toggleButton.text =
+                    contentView.context.getString(com.test.application.core.R.string.show_more_text)
+                contentView.maxLines = 2
+                contentView.ellipsize = TextUtils.TruncateAt.END
+            } else {
+                toggleButton.visibility = TextView.GONE
+            }
+        }
+
         setupToggleButton()
-        checkTextFits()
     }
 
     private fun setupToggleButton() {
-        updateButtonText()
         toggleButton.setOnClickListener {
+            TransitionManager.beginDelayedTransition(container)
             isExpanded = !isExpanded
             updateView()
-            updateButtonText()
         }
     }
 
     private fun updateView() {
+        TransitionManager.beginDelayedTransition(container)
+
         if (isExpanded) {
             contentView.maxLines = Integer.MAX_VALUE
             contentView.ellipsize = null
+            toggleButton.text =
+                contentView.context.getString(com.test.application.core.R.string.hide_text)
         } else {
             contentView.maxLines = 2
             contentView.ellipsize = TextUtils.TruncateAt.END
+            toggleButton.text =
+                contentView.context.getString(com.test.application.core.R.string.show_more_text)
         }
     }
-
-    private fun updateButtonText() {
-        toggleButton.text = if (isExpanded)
-            toggleButton.context.getString(com.test.application.core.R.string.hide_text)
-        else
-            toggleButton.context.getString(com.test.application.core.R.string.show_more_text)
-    }
-    private fun checkTextFits() {
-        contentView.viewTreeObserver
-            .addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                if (contentView.lineCount <= 2) {
-                    toggleButton.visibility = View.GONE
-                } else {
-                    toggleButton.visibility = View.VISIBLE
-                }
-                contentView.viewTreeObserver.removeOnGlobalLayoutListener(this)
-            }
-        })
-    }
-
 }

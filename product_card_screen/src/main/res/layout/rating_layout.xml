@@ -38,9 +38,10 @@
 
         <ImageView
             android:id="@+id/fifth_star"
-            android:layout_width="@dimen/rating_icon_width"
-            android:layout_height="@dimen/rating_icon_height"
-            android:src="@drawable/ic_star" />
+            android:layout_gravity="center"
+            android:layout_width="13dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_empty_star" />
 
     </LinearLayout>
 

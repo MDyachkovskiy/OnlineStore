@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="view.ProductDetailsFragment"
+    android:background="@color/white"
     tools:ignore="contentDescription">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,6 +16,7 @@
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -33,7 +35,7 @@
                     android:layout_width="@dimen/toolbar_icon_size"
                     android:layout_height="@dimen/toolbar_icon_size"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="@dimen/margin_8dp_small"
+                    android:layout_marginEnd="@dimen/margin_16dp_medium"
                     android:src="@drawable/ic_export" />
 
             </com.google.android.material.appbar.MaterialToolbar>
@@ -50,12 +52,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/app_bar_layout" />
 
-        <CheckBox
-            android:id="@+id/cb_favourite"
+        <ImageView
+            android:id="@+id/iv_favourite"
             android:layout_width="@dimen/favorite_icon_size"
             android:layout_height="@dimen/favorite_icon_size"
-            android:button="@drawable/selector_favorite"
-            android:checked="true"
             android:padding="0dp"
             app:layout_constraintEnd_toEndOf="@id/product_image_carousel"
             app:layout_constraintTop_toTopOf="@id/product_image_carousel" />
@@ -74,7 +74,7 @@
         <LinearLayout
             android:id="@+id/pagination"
             android:layout_width="wrap_content"
-            android:layout_height="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16dp_medium"
             android:orientation="horizontal"
             android:padding="@dimen/margin_2dp_small"
@@ -155,6 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="@dimen/margin_10dp_small"
+            android:layout_marginHorizontal="@dimen/margin_16dp_medium"
             android:background="@color/background_light_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -290,7 +291,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_16dp_medium"
             android:ellipsize="end"
-            android:lines="2"
             android:text="@string/product_composition_mock"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -303,7 +303,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16dp_medium"
             android:layout_marginTop="@dimen/margin_10dp_small"
-            android:text="@string/show_more_text"
             android:textColor="@color/text_grey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_product_composition" />
