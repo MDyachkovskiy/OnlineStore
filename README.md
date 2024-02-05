@@ -71,3 +71,15 @@
     </td>
   </tr>
 </table>
+
+<h2>💻 Используемый стек технологий:</h2>
+
+*   Jetpack Navigation
+*   MVVM
+*   Recycler View
+*   Room(SQLite)
+*   Retrofit
+*   Coroutine
+*   Flow
+*   Multimodular
+*   Dagger 2+ Hilt
