@@ -6,6 +6,8 @@
   сортировки с Spinner, карточку с подробным описанием товара, личный кабинет пользователя и список избранных товаров пользователя.
 </p>
 
+<img src="https://gdurl.com/w1Jp" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/dKTl" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/tic4" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/aW8y" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/wVar" alt="project-screenshot" width="200" height="400/">
+
 <h2>Экран авторизации пользователя</h2>
 
 <table>
