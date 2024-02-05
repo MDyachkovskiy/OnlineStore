@@ -13,7 +13,7 @@
 <table>
   <tr>
     <td width="400" height="650">
-      <img src="https://gdurl.com/yYuD" width="250" height="540" />
+      <img src="https://gdurl.com/yYuD" width="250" height="500" />
     </td>
     <td width="800">
       <p>
@@ -29,7 +29,7 @@
 <table>
   <tr>
     <td width="400" height="650">
-      <img src="https://gdurl.com/qTXd" width="250" height="540" />
+      <img src="https://gdurl.com/qTXd" width="250" height="500" />
     </td>
     <td width="800">
       <p>
@@ -45,7 +45,7 @@
 <table>
   <tr>
     <td width="400" height="650">
-      <img src="https://gdurl.com/Wtp6" width="250" height="540" />
+      <img src="https://gdurl.com/Wtp6" width="250" height="500" />
     </td>
     <td width="800">
       <p>
@@ -60,7 +60,7 @@
 <table>
   <tr>
     <td width="400" height="650">
-      <img src="https://gdurl.com/LXtn" width="250" height="540" />
+      <img src="https://gdurl.com/LXtn" width="250" height="500" />
     </td>
     <td width="800">
       <p>
