@@ -11,7 +11,7 @@
 <table>
   <tr>
     <td width="400" height="600">
-      <img src="https://gdurl.com/rdwW" width="200" height="400" />
+      <img src="https://gdurl.com/rdwW" width="300" height="600" />
     </td>
     <td width="800">
       <p>
