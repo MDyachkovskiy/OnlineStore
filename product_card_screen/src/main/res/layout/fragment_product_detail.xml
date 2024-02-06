@@ -340,7 +340,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <com.test.application.core.custom_view.StrikeThroughTextView
                     android:id="@+id/tv_btn_old_price"
                     style="@style/caption_1"
                     android:layout_width="wrap_content"

@@ -12,7 +12,7 @@
         android:text="@string/price_mock"
         android:textColor="@color/black" />
 
-    <TextView
+    <com.test.application.core.custom_view.StrikeThroughTextView
         style="@style/text_1"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="@dimen/margin_12dp_medium"
