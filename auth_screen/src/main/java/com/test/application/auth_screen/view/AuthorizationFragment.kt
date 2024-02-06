@@ -143,9 +143,14 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
     }
 
     private fun updateLoginButtonState() {
-        val nameValid = binding.etName.text.toString().all { it in 'А'..'я' }
-        val secondNameValid = binding.etSecondName.text.toString().all { it in 'А'..'я' }
-        val phoneValid = phoneNumberValidator.isValid(binding.etPhoneNumber.text.toString())
+        val name = binding.etName.text.toString()
+        val secondName = binding.etSecondName.text.toString()
+        val phoneNumber = binding.etPhoneNumber.text.toString()
+
+        val nameValid = name.isNotEmpty() && name.all { it in 'А'..'я' }
+        val secondNameValid = secondName.isNotEmpty() && secondName.all { it in 'А'..'я' }
+        val phoneValid = phoneNumber.isNotEmpty() && phoneNumberValidator.isValid(phoneNumber)
+
         binding.btnLogin.isEnabled = nameValid && secondNameValid && phoneValid
     }
 
