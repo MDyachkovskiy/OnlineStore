@@ -6,7 +6,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.viewModels
+import com.google.android.material.textfield.TextInputLayout
 import com.test.application.auth_screen.databinding.FragmentAuthorizationBinding
 import com.test.application.auth_screen.utils.BUNDLE_KEY_NAME
 import com.test.application.auth_screen.utils.BUNDLE_KEY_PHONE_NUMBER
@@ -52,10 +54,45 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
         setNameEditText()
         setPhoneEditText()
         setLoginButton()
+        setEditTextDeleteEndIcon()
+    }
+
+    private fun setEditTextDeleteEndIcon() {
+        val editTextLayouts = listOf(
+            Pair(binding.etName, binding.etLayoutName), Pair(binding.etSecondName,
+                binding.etLayoutSecondName), Pair(binding.etPhoneNumber, binding.etLayoutPhoneNumber)
+        )
+        editTextLayouts.forEach { (editText, editTextLayout) ->
+            setEndIconDrawable(editTextLayout)
+            editTextLayout.isEndIconVisible = false
+            editText.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    editTextLayout.isEndIconVisible = s?.isNotEmpty() == true
+                }
+
+                override fun afterTextChanged(s: Editable?) {}
+            })
+
+            editTextLayout.setEndIconOnClickListener {
+                editText.text = null
+            }
+        }
+    }
+
+    private fun setEndIconDrawable(editTextLayout: TextInputLayout) {
+        val drawable = ContextCompat.getDrawable(requireContext(),
+            com.test.application.auth_screen.R.drawable.ic_clear)?.apply {
+            val color = ContextCompat.getColor(requireContext(), R.color.element_dark_grey)
+            DrawableCompat.setTint(this, color)
+        }
+        editTextLayout.endIconDrawable = drawable
     }
 
     private fun disableHints() {
-        with(binding){
+        with(binding) {
             etPhoneNumber.hint = null
             etName.hint = null
             etSecondName.hint = null
@@ -82,6 +119,7 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
     }
 
     private fun setPhoneEditText() {
+        binding.etPhoneNumber.hint = getString(R.string.hint_phone_number)
         binding.etPhoneNumber.addTextChangedListener(object : TextWatcher {
             private var isFormatting = false
             private var lastFormattedText: String? = null
@@ -95,7 +133,7 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
                 isFormatting = true
 
                 val digits = p0.toString().filter { it.isDigit() }
-                if(digits.length > 16) {
+                if (digits.length > 16) {
                     val truncatedDigits = digits.substring(0, 16)
                     val formatted = phoneNumberValidator.format(truncatedDigits)
                     binding.etPhoneNumber.setText(formatted)
@@ -119,15 +157,19 @@ class AuthorizationFragment : BaseFragment<FragmentAuthorizationBinding>(
     }
 
     private fun setNameEditText() {
-        val editTexts = listOf(Pair(binding.etName, binding.etLayoutName),
-            Pair(binding.etSecondName, binding.etLayoutSecondName))
+        binding.etName.hint = getString(R.string.hint_name)
+        binding.etSecondName.hint = getString(R.string.hint_second_name)
+        val editTexts = listOf(
+            Pair(binding.etName, binding.etLayoutName),
+            Pair(binding.etSecondName, binding.etLayoutSecondName)
+        )
         editTexts.forEach { (editText, textInputLayout) ->
             editText.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     val valid = p0.toString().all { it in 'А'..'я' }
-                    if(valid) {
+                    if (valid) {
                         textInputLayout.boxBackgroundColor =
                             ContextCompat.getColor(requireContext(), R.color.background_light_grey)
                     } else {

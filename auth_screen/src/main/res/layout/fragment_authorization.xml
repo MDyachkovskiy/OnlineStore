@@ -37,22 +37,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="113dp"
         android:paddingTop="@dimen/margin_16dp_medium"
-        android:hint="@string/hint_name"
         app:boxBackgroundColor="@color/background_light_grey"
-        app:endIconDrawable="@drawable/ic_clear"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/element_dark_grey"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_name"
             style="@style/placeholder_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/edit_text_height"
             android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+            android:hint="@string/hint_name"
             android:inputType="textPersonName|textCapSentences"
+            android:paddingStart="@dimen/margin_16dp_medium"
+            android:paddingTop="@dimen/margin_8dp_small"
             android:textAppearance="@style/et_placeholder_text" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,9 +64,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/margin_16dp_medium"
         app:boxBackgroundColor="@color/background_light_grey"
-        app:endIconDrawable="@drawable/ic_clear"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/element_dark_grey"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_layout_name">
@@ -74,10 +72,12 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_second_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/edit_text_height"
             android:layout_marginHorizontal="@dimen/margin_16dp_medium"
             android:hint="@string/hint_second_name"
             android:inputType="textPersonName|textCapSentences"
+            android:paddingStart="@dimen/margin_16dp_medium"
+            android:paddingTop="@dimen/margin_8dp_small"
             android:textAppearance="@style/et_placeholder_text" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -89,9 +89,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/margin_16dp_medium"
         app:boxBackgroundColor="@color/background_light_grey"
-        app:endIconDrawable="@drawable/ic_clear"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/element_dark_grey"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_layout_second_name">
@@ -99,11 +97,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_phone_number"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/edit_text_height"
             android:layout_marginHorizontal="@dimen/margin_16dp_medium"
             android:hint="@string/hint_phone_number"
             android:inputType="phone"
             android:maxLength="16"
+            android:paddingStart="@dimen/margin_16dp_medium"
+            android:paddingTop="@dimen/margin_8dp_small"
             android:textAppearance="@style/et_placeholder_text" />
 
     </com.google.android.material.textfield.TextInputLayout>
