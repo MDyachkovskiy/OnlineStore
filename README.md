@@ -13,7 +13,7 @@
 <table>
   <tr>
     <td width="400" height="650">
-      <img src="https://gdurl.com/w1Jp" width="250" height="520" />
+      <img src="https://gdurl.com/TjYD" width="250" height="520" />
     </td>
     <td width="800">
       <p>
