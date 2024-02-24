@@ -93,4 +93,9 @@ class FavouritesListFragment : BaseFragmentWithAppState<AppState, List<Product>,
             openProductDetailsListener?.openProductDetailsFromFavourites(bundle)
         }
     }
+
+    override fun onDestroyView() {
+        binding.rvFavourites.adapter = null
+        super.onDestroyView()
+    }
 }

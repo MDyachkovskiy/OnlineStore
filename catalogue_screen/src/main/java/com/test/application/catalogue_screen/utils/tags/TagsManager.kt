@@ -9,20 +9,20 @@ import com.test.application.catalogue_screen.R
 import com.test.application.core.domain.product.Product
 
 class TagsManager(
-    private val context: Context,
+    private var context: Context?,
     private val chipGroup: ChipGroup,
     private val onTagSelected: (String?) -> Unit
 ) {
 
     private val tagMapping = mapOf(
-        context.getString(com.test.application.core.R.string.tag_face) to
-                context.getString(com.test.application.core.R.string.tag_eng_face),
-        context.getString(com.test.application.core.R.string.tag_body) to
-                context.getString(com.test.application.core.R.string.tag_eng_body),
-        context.getString(com.test.application.core.R.string.tag_suntan) to
-                context.getString(com.test.application.core.R.string.tag_eng_suntan),
-        context.getString(com.test.application.core.R.string.tag_mask) to
-                context.getString(com.test.application.core.R.string.tag_eng_mask)
+        context?.getString(com.test.application.core.R.string.tag_face) to
+                context?.getString(com.test.application.core.R.string.tag_eng_face),
+        context?.getString(com.test.application.core.R.string.tag_body) to
+                context?.getString(com.test.application.core.R.string.tag_eng_body),
+        context?.getString(com.test.application.core.R.string.tag_suntan) to
+                context?.getString(com.test.application.core.R.string.tag_eng_suntan),
+        context?.getString(com.test.application.core.R.string.tag_mask) to
+                context?.getString(com.test.application.core.R.string.tag_eng_mask)
     )
 
     private var selectedChipId: Int? = null
@@ -82,10 +82,10 @@ class TagsManager(
     private fun selectAllTag() {
         chipGroup.children.forEach { child ->
             (child as? Chip)?.let {
-                if (it.text == context.getString(com.test.application.core.R.string.tag_all)) {
+                if (it.text == context?.getString(com.test.application.core.R.string.tag_all)) {
                     it.isChecked = true
                     selectedChipId = it.id
-                    onTagSelected(tagMapping[context.getString(com.test.application.core.R.string.tag_all)])
+                    onTagSelected(tagMapping[context?.getString(com.test.application.core.R.string.tag_all)])
                     updateCloseIconVisibility()
                 }
             }
@@ -100,11 +100,16 @@ class TagsManager(
 
     fun filterProductsByTag(products: List<Product>, selectedTag: String?): List<Product> {
         return if (selectedTag.isNullOrEmpty() ||
-            selectedTag == context.getString(com.test.application.core.R.string.tag_all)
+            selectedTag == context?.getString(com.test.application.core.R.string.tag_all)
         ) {
             products
         } else {
             products.filter { it.tags.contains(selectedTag) }
         }
+    }
+
+    fun cleanup() {
+        context = null
+        chipGroup.removeAllViews()
     }
 }

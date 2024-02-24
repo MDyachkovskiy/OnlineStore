@@ -71,4 +71,6 @@ dependencies {
     implementation(Dagger.main)
     implementation(Dagger.android_support)
     kapt(Dagger.compiler)
+
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:3.0-alpha-1")
 }

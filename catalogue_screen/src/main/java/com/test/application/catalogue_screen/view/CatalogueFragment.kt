@@ -33,7 +33,7 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
     private val viewModel: CatalogueViewModel by activityViewModels()
     private val productsAdapter: ProductsAdapter by lazy { ProductsAdapter() }
     private lateinit var sortingManager: SortingManager
-    private lateinit var tagsManager: TagsManager
+    private var tagsManager: TagsManager? = null
     private var originalProductsList: List<Product> = listOf()
     private var openProductDetailsListener: OpenProductDetails? = null
 
@@ -60,11 +60,13 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
 
     private fun setTagsFilter() {
         tagsManager = TagsManager(requireContext(), binding.chipTagFilters) { selectedTag ->
-            val filteredProducts = tagsManager.filterProductsByTag(originalProductsList, selectedTag)
-            productsAdapter.updateContacts(filteredProducts)
+            val filteredProducts = tagsManager?.filterProductsByTag(originalProductsList, selectedTag)
+            if (filteredProducts != null) {
+                productsAdapter.updateContacts(filteredProducts)
+            }
         }
         val tags = resources.getStringArray(com.test.application.core.R.array.tags_array)
-        tagsManager.setupTags(tags)
+        tagsManager?.setupTags(tags)
     }
 
     private fun setSortingSpinner() {
@@ -168,5 +170,12 @@ class CatalogueFragment : BaseFragmentWithAppState<AppState, List<Product>, Frag
         val currentState = viewModel.stateFlow.value
         renderData(currentState)
         viewModel.getProductsFromRemoteSource()
+    }
+
+    override fun onDestroyView() {
+        tagsManager?.cleanup()
+        tagsManager = null
+        binding.rvProductsCatalogue.adapter = null
+        super.onDestroyView()
     }
 }
